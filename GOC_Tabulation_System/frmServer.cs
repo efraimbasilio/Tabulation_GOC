@@ -145,7 +145,7 @@ namespace GOC_Tabulation_System
                 //To show the Computed Score in the last Column
                 dgvPreElim.Rows[i].Cells[10].Value = sum.ToString("n");
             }
-
+            this.dgvPreElim.Sort(this.dgvPreElim.Columns["TOTAL"], ListSortDirection.Descending); // To Sort the computed Score
         }
 
         #endregion
@@ -208,7 +208,7 @@ namespace GOC_Tabulation_System
                 //To show the Computed Score in the last Column
                 dgvSemiFinal.Rows[i].Cells[6].Value = sum.ToString("n");             
             }
-
+            this.dgvSemiFinal.Sort(this.dgvSemiFinal.Columns["TOTAL"], ListSortDirection.Descending); // To Sort the computed Score
         }
 
         #endregion
@@ -283,6 +283,7 @@ namespace GOC_Tabulation_System
                 //To show the Computed Score in the last Column
                 dgvTOP10.Rows[i].Cells[19].Value = sum.ToString("n");
             }
+           
 
         }
         #endregion
@@ -316,5 +317,17 @@ namespace GOC_Tabulation_System
         {
             Compute_TOP10();
         }
+
+        private void btnPreviewTOP_Click(object sender, EventArgs e)
+        {
+            //dgvTOP10.Sort(dgvTOP10.Columns["TOTAL"], ListSortDirection.Descending); // To Sort the computed Score
+            dgvTOP10.Sort(dgvTOP10.Columns["TOTAL"], System.ComponentModel.ListSortDirection.Descending);
+        }
+
+        private void dgvTOP10_SortCompare(object sender, DataGridViewSortCompareEventArgs e)
+        {
+           
+        }
+        
     }
 }

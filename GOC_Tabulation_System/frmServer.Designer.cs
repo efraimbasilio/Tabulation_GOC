@@ -40,7 +40,7 @@
             this.btnPrintSemi = new System.Windows.Forms.Button();
             this.btnSubmitSemi = new System.Windows.Forms.Button();
             this.dgvTOP10 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnPreviewTOP = new System.Windows.Forms.Button();
             this.btnSubmitTOP = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPreElim)).BeginInit();
             this.panel2.SuspendLayout();
@@ -166,15 +166,17 @@
             this.dgvTOP10.RowHeadersVisible = false;
             this.dgvTOP10.Size = new System.Drawing.Size(1173, 191);
             this.dgvTOP10.TabIndex = 14;
+            this.dgvTOP10.SortCompare += new System.Windows.Forms.DataGridViewSortCompareEventHandler(this.dgvTOP10_SortCompare);
             // 
-            // button1
+            // btnPreviewTOP
             // 
-            this.button1.Location = new System.Drawing.Point(260, 733);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Preview";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnPreviewTOP.Location = new System.Drawing.Point(260, 733);
+            this.btnPreviewTOP.Name = "btnPreviewTOP";
+            this.btnPreviewTOP.Size = new System.Drawing.Size(75, 23);
+            this.btnPreviewTOP.TabIndex = 16;
+            this.btnPreviewTOP.Text = "Preview";
+            this.btnPreviewTOP.UseVisualStyleBackColor = true;
+            this.btnPreviewTOP.Click += new System.EventHandler(this.btnPreviewTOP_Click);
             // 
             // btnSubmitTOP
             // 
@@ -191,7 +193,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1366, 768);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnPreviewTOP);
             this.Controls.Add(this.btnSubmitTOP);
             this.Controls.Add(this.dgvTOP10);
             this.Controls.Add(this.btnPrintSemi);
@@ -234,7 +236,7 @@
         private System.Windows.Forms.Button btnPrintSemi;
         private System.Windows.Forms.Button btnSubmitSemi;
         private System.Windows.Forms.DataGridView dgvTOP10;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnPreviewTOP;
         private System.Windows.Forms.Button btnSubmitTOP;
     }
 }
