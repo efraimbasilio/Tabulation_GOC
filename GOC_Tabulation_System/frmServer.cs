@@ -128,6 +128,89 @@ namespace GOC_Tabulation_System
 
             }
         }
+
+        private void Compute_LongGownOnly()
+        {
+            double sum = 00.00;
+            for (int i = 0; i < dgvPreElim.RowCount; i++)
+            {
+                //clear
+                dgvPreElim.Rows[i].Cells[10].Value = 00.00;
+                sum = 00.00;
+
+                for (int y = 1; y <=10; y++)
+                {
+                    sum = sum + Convert.ToDouble(dgvPreElim.Rows[i].Cells[y].Value);
+                }
+                //To show the Computed Score in the last Column
+                dgvPreElim.Rows[i].Cells[10].Value = sum.ToString("n");
+            }
+
+        }
+
+        #endregion
+
+        #region Semi-Final(TOP 10 or TOP 9)
+        private void DataGrid_Semi_Final()
+        {
+            dgvSemiFinal.ColumnCount = 7; //Number of Columns to generate
+            dgvSemiFinal.Columns[0].Name = "#";
+
+            dgvSemiFinal.Columns[1].Name = "Talent";
+            dgvSemiFinal.Columns[2].Name = "Swimsuit";
+            dgvSemiFinal.Columns[3].Name = "OverAll Impact";
+            dgvSemiFinal.Columns[4].Name = "Beauty of Face";
+            dgvSemiFinal.Columns[5].Name = "Long Gown";       
+            dgvSemiFinal.Columns[6].Name = "Total";
+
+            dgvSemiFinal.Columns[0].Width = 50;
+            dgvSemiFinal.Columns[1].Width = 50;
+            dgvSemiFinal.Columns[2].Width = 50;
+            dgvSemiFinal.Columns[3].Width = 50;
+            dgvSemiFinal.Columns[4].Width = 50;
+            dgvSemiFinal.Columns[5].Width = 50;
+            dgvSemiFinal.Columns[6].Width = 50;
+       
+
+            for (int i = 1; i <= 18; i++)
+            {
+
+                dgvSemiFinal.Rows.Add(i, "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00");
+            }
+        }
+
+        private void Submit_Semi_Final()
+        {
+            //Submit Score to database
+            for (int i = 0; i < dgvSemiFinal.RowCount; i++)
+            {
+                for (int y = 0; y < 7; y++)
+                {
+                    MessageBox.Show(dgvSemiFinal.Rows[i].Cells[y].Value.ToString());
+                }
+
+            }
+        }
+
+        private void Compute_Semi_Final()
+        {
+            double sum = 00.00;
+            for (int i = 0; i < dgvSemiFinal.RowCount; i++)
+            {
+                //clear
+                dgvSemiFinal.Rows[i].Cells[6].Value = 00.00;
+                sum = 00.00;
+
+                for (int y = 1; y <=6; y++)
+                {                  
+                    sum = sum + Convert.ToDouble(dgvSemiFinal.Rows[i].Cells[y].Value);                                   
+                }
+                //To show the Computed Score in the last Column
+                dgvSemiFinal.Rows[i].Cells[6].Value = sum.ToString("n");             
+            }
+
+        }
+
         #endregion
 
         public frmServer()
@@ -137,12 +220,22 @@ namespace GOC_Tabulation_System
 
         private void frmServer_Load(object sender, EventArgs e)
         {
-            Datagrid_LongGownOnly();
+            
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-          
+            
+        }
+
+        private void btnSubmitSemi_Click(object sender, EventArgs e)
+        {
+   
+        }
+
+        private void dgvSemiFinal_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
     }
 }

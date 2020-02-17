@@ -34,13 +34,15 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgvSemiFinal = new System.Windows.Forms.DataGridView();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.btnPreview = new System.Windows.Forms.Button();
+            this.btnPrintSemi = new System.Windows.Forms.Button();
+            this.btnSubmitSemi = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPreElim)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSemiFinal)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvPreElim
@@ -55,7 +57,7 @@
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(83, 572);
+            this.panel1.Location = new System.Drawing.Point(181, 534);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 100);
             this.panel1.TabIndex = 1;
@@ -102,13 +104,16 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Tabulation Server";
             // 
-            // dataGridView2
+            // dgvSemiFinal
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(181, 64);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(418, 464);
-            this.dataGridView2.TabIndex = 9;
+            this.dgvSemiFinal.AllowUserToAddRows = false;
+            this.dgvSemiFinal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSemiFinal.Location = new System.Drawing.Point(181, 64);
+            this.dgvSemiFinal.Name = "dgvSemiFinal";
+            this.dgvSemiFinal.RowHeadersVisible = false;
+            this.dgvSemiFinal.Size = new System.Drawing.Size(418, 464);
+            this.dgvSemiFinal.TabIndex = 9;
+            this.dgvSemiFinal.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSemiFinal_CellEndEdit);
             // 
             // btnSubmit
             // 
@@ -129,14 +134,35 @@
             this.btnPreview.Text = "Preview";
             this.btnPreview.UseVisualStyleBackColor = true;
             // 
+            // btnPrintSemi
+            // 
+            this.btnPrintSemi.Location = new System.Drawing.Point(260, 40);
+            this.btnPrintSemi.Name = "btnPrintSemi";
+            this.btnPrintSemi.Size = new System.Drawing.Size(75, 23);
+            this.btnPrintSemi.TabIndex = 13;
+            this.btnPrintSemi.Text = "Preview";
+            this.btnPrintSemi.UseVisualStyleBackColor = true;
+            // 
+            // btnSubmitSemi
+            // 
+            this.btnSubmitSemi.Location = new System.Drawing.Point(181, 40);
+            this.btnSubmitSemi.Name = "btnSubmitSemi";
+            this.btnSubmitSemi.Size = new System.Drawing.Size(75, 23);
+            this.btnSubmitSemi.TabIndex = 12;
+            this.btnSubmitSemi.Text = "Submit";
+            this.btnSubmitSemi.UseVisualStyleBackColor = true;
+            this.btnSubmitSemi.Click += new System.EventHandler(this.btnSubmitSemi_Click);
+            // 
             // frmServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1366, 768);
+            this.Controls.Add(this.btnPrintSemi);
+            this.Controls.Add(this.btnSubmitSemi);
             this.Controls.Add(this.btnPreview);
             this.Controls.Add(this.btnSubmit);
-            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.dgvSemiFinal);
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -151,7 +177,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSemiFinal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -165,8 +191,10 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgvSemiFinal;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnPreview;
+        private System.Windows.Forms.Button btnPrintSemi;
+        private System.Windows.Forms.Button btnSubmitSemi;
     }
 }
