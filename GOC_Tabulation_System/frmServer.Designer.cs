@@ -39,10 +39,14 @@
             this.btnPreview = new System.Windows.Forms.Button();
             this.btnPrintSemi = new System.Windows.Forms.Button();
             this.btnSubmitSemi = new System.Windows.Forms.Button();
+            this.dgvTOP10 = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnSubmitTOP = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPreElim)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSemiFinal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTOP10)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvPreElim
@@ -57,7 +61,7 @@
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(181, 534);
+            this.panel1.Location = new System.Drawing.Point(28, 44);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 100);
             this.panel1.TabIndex = 1;
@@ -153,11 +157,43 @@
             this.btnSubmitSemi.UseVisualStyleBackColor = true;
             this.btnSubmitSemi.Click += new System.EventHandler(this.btnSubmitSemi_Click);
             // 
+            // dgvTOP10
+            // 
+            this.dgvTOP10.AllowUserToAddRows = false;
+            this.dgvTOP10.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTOP10.Location = new System.Drawing.Point(181, 534);
+            this.dgvTOP10.Name = "dgvTOP10";
+            this.dgvTOP10.RowHeadersVisible = false;
+            this.dgvTOP10.Size = new System.Drawing.Size(1173, 191);
+            this.dgvTOP10.TabIndex = 14;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(260, 733);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "Preview";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // btnSubmitTOP
+            // 
+            this.btnSubmitTOP.Location = new System.Drawing.Point(181, 733);
+            this.btnSubmitTOP.Name = "btnSubmitTOP";
+            this.btnSubmitTOP.Size = new System.Drawing.Size(75, 23);
+            this.btnSubmitTOP.TabIndex = 15;
+            this.btnSubmitTOP.Text = "Submit";
+            this.btnSubmitTOP.UseVisualStyleBackColor = true;
+            this.btnSubmitTOP.Click += new System.EventHandler(this.btnSubmitTOP_Click);
+            // 
             // frmServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1366, 768);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSubmitTOP);
+            this.Controls.Add(this.dgvTOP10);
             this.Controls.Add(this.btnPrintSemi);
             this.Controls.Add(this.btnSubmitSemi);
             this.Controls.Add(this.btnPreview);
@@ -178,6 +214,7 @@
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSemiFinal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTOP10)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,5 +233,8 @@
         private System.Windows.Forms.Button btnPreview;
         private System.Windows.Forms.Button btnPrintSemi;
         private System.Windows.Forms.Button btnSubmitSemi;
+        private System.Windows.Forms.DataGridView dgvTOP10;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSubmitTOP;
     }
 }

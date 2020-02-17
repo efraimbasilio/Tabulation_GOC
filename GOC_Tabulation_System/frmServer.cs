@@ -150,7 +150,7 @@ namespace GOC_Tabulation_System
 
         #endregion
 
-        #region Semi-Final(TOP 10 or TOP 9)
+        #region ELIMINATION DATAGRID(TOP 10 or TOP 9)
         private void DataGrid_Semi_Final()
         {
             dgvSemiFinal.ColumnCount = 7; //Number of Columns to generate
@@ -213,6 +213,80 @@ namespace GOC_Tabulation_System
 
         #endregion
 
+        #region SEMI-FINAL - TO COMPUTE TOP 10
+        private void DatagridDesignTOP10()
+        {
+            dgvTOP10.ColumnCount = 20;
+            dgvTOP10.Columns[0].Name = "#";
+
+            dgvTOP10.Columns[1].Name = "B1";
+            dgvTOP10.Columns[2].Name = "W1";
+            dgvTOP10.Columns[3].Name = "B2";
+            dgvTOP10.Columns[4].Name = "W2";
+            dgvTOP10.Columns[5].Name = "B3";
+            dgvTOP10.Columns[6].Name = "W3";
+            dgvTOP10.Columns[7].Name = "B4";
+            dgvTOP10.Columns[8].Name = "W4";
+            dgvTOP10.Columns[9].Name = "B5";
+            dgvTOP10.Columns[10].Name = "W5";
+            dgvTOP10.Columns[11].Name = "B6";
+            dgvTOP10.Columns[12].Name = "W6";
+            dgvTOP10.Columns[13].Name = "B7";
+            dgvTOP10.Columns[14].Name = "W7";
+            dgvTOP10.Columns[15].Name = "B8";
+            dgvTOP10.Columns[16].Name = "W8";
+            dgvTOP10.Columns[17].Name = "B9";
+            dgvTOP10.Columns[18].Name = "W9";
+            dgvTOP10.Columns[19].Name = "TOTAL";
+
+            dgvTOP10.Columns[0].Width = 50;
+            dgvTOP10.Columns[1].Width = 50;
+            dgvTOP10.Columns[2].Width = 50;
+            dgvTOP10.Columns[3].Width = 50;
+            dgvTOP10.Columns[4].Width = 50;
+            dgvTOP10.Columns[5].Width = 50;
+            dgvTOP10.Columns[6].Width = 50;
+            dgvTOP10.Columns[7].Width = 50;
+            dgvTOP10.Columns[8].Width = 50;
+            dgvTOP10.Columns[9].Width = 50;
+            dgvTOP10.Columns[10].Width = 50;
+            dgvTOP10.Columns[11].Width = 50;
+            dgvTOP10.Columns[12].Width = 50;
+            dgvTOP10.Columns[13].Width = 50;
+            dgvTOP10.Columns[14].Width = 50;
+            dgvTOP10.Columns[15].Width = 50;
+            dgvTOP10.Columns[16].Width = 50;
+            dgvTOP10.Columns[17].Width = 50;
+            dgvTOP10.Columns[18].Width = 50;
+            dgvTOP10.Columns[19].Width = 50;
+
+            for (int i = 1; i <= 10; i++)
+            {
+
+                dgvTOP10.Rows.Add(i, "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00");
+            }
+        }
+
+        private void Compute_TOP10()
+        {
+            double sum = 00.00;
+            for (int i = 0; i < dgvTOP10.RowCount; i++)
+            {
+                //clear
+                dgvTOP10.Rows[i].Cells[19].Value = 00.00;
+                sum = 00.00;
+
+                for (int y = 1; y <= 19; y++)
+                {
+                    sum = sum + Convert.ToDouble(dgvTOP10.Rows[i].Cells[y].Value);
+                }
+                //To show the Computed Score in the last Column
+                dgvTOP10.Rows[i].Cells[19].Value = sum.ToString("n");
+            }
+
+        }
+        #endregion
+
         public frmServer()
         {
             InitializeComponent();         
@@ -220,7 +294,7 @@ namespace GOC_Tabulation_System
 
         private void frmServer_Load(object sender, EventArgs e)
         {
-            
+            DatagridDesignTOP10();
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -236,6 +310,11 @@ namespace GOC_Tabulation_System
         private void dgvSemiFinal_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             
+        }
+
+        private void btnSubmitTOP_Click(object sender, EventArgs e)
+        {
+            Compute_TOP10();
         }
     }
 }
