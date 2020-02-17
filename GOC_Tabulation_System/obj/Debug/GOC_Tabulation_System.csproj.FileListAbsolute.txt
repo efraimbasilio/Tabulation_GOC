@@ -9,3 +9,16 @@ C:\Users\Instructor\Desktop\GOC_Tabulation_System\GOC_Tabulation_System\obj\Debu
 C:\Users\Instructor\Desktop\GOC_Tabulation_System\GOC_Tabulation_System\obj\Debug\GOC_Tabulation_System.pdb
 C:\Users\Instructor\Desktop\GOC_Tabulation_System\GOC_Tabulation_System\obj\Debug\GOC_Tabulation_System.frmClient.resources
 C:\Users\Instructor\Desktop\GOC_Tabulation_System\GOC_Tabulation_System\obj\Debug\GOC_Tabulation_System.frmAddPicturecs.resources
+C:\Users\emaru\Documents\GitHub\Tabulation_GOC\GOC_Tabulation_System\bin\Debug\GOC_Tabulation_System.exe.config
+C:\Users\emaru\Documents\GitHub\Tabulation_GOC\GOC_Tabulation_System\bin\Debug\GOC_Tabulation_System.exe
+C:\Users\emaru\Documents\GitHub\Tabulation_GOC\GOC_Tabulation_System\bin\Debug\GOC_Tabulation_System.pdb
+C:\Users\emaru\Documents\GitHub\Tabulation_GOC\GOC_Tabulation_System\obj\Debug\GOC_Tabulation_System.csprojResolveAssemblyReference.cache
+C:\Users\emaru\Documents\GitHub\Tabulation_GOC\GOC_Tabulation_System\obj\Debug\GOC_Tabulation_System.Form1.resources
+C:\Users\emaru\Documents\GitHub\Tabulation_GOC\GOC_Tabulation_System\obj\Debug\GOC_Tabulation_System.frmAddPicturecs.resources
+C:\Users\emaru\Documents\GitHub\Tabulation_GOC\GOC_Tabulation_System\obj\Debug\GOC_Tabulation_System.frmClient.resources
+C:\Users\emaru\Documents\GitHub\Tabulation_GOC\GOC_Tabulation_System\obj\Debug\GOC_Tabulation_System.frmTop10.resources
+C:\Users\emaru\Documents\GitHub\Tabulation_GOC\GOC_Tabulation_System\obj\Debug\GOC_Tabulation_System.Properties.Resources.resources
+C:\Users\emaru\Documents\GitHub\Tabulation_GOC\GOC_Tabulation_System\obj\Debug\GOC_Tabulation_System.csproj.GenerateResource.Cache
+C:\Users\emaru\Documents\GitHub\Tabulation_GOC\GOC_Tabulation_System\obj\Debug\GOC_Tabulation_System.exe
+C:\Users\emaru\Documents\GitHub\Tabulation_GOC\GOC_Tabulation_System\obj\Debug\GOC_Tabulation_System.pdb
+C:\Users\emaru\Documents\GitHub\Tabulation_GOC\GOC_Tabulation_System\obj\Debug\GOC_Tabulation_System.frmServer.resources
