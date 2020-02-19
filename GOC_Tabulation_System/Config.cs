@@ -79,8 +79,8 @@ namespace GOC_Tabulation_System
                 //error configuration
                 MessageBox.Show("Error: Cannot connect to server" + ex.Message.ToString(), "System Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                //frmSetting set = new frmSetting();
-                //set.ShowDialog();
+                frmSetting set = new frmSetting();
+                set.ShowDialog();
                 return false;
 
 

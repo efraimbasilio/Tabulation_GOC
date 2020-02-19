@@ -12,6 +12,37 @@ namespace GOC_Tabulation_System
 {
     public partial class frmServer : Form
     {
+        Judges j = new Judges();
+        Candidates c = new Candidates();
+
+        List<Judges> js = new List<Judges>();
+        List<Candidates> cs = new List<Candidates>();
+
+        #region Functions
+        public void LoadJudgeAndCandidates()
+        {
+            //Get the number of Judges
+            js.Clear();           
+            js = j.Load();
+
+            foreach (var item in js)
+            {
+                lblJudges.Text = item.Judge;
+            }
+
+            //Get the number of Candidates
+            cs.Clear();
+            cs = c.Load();
+
+            foreach (var item in cs)
+            {
+                lblCandidates.Text = item.Candidate;
+            }
+
+
+        }
+        #endregion
+
         #region LongGown PreElim
         public void Datagrid_LongGownOnly()
         {
@@ -288,6 +319,8 @@ namespace GOC_Tabulation_System
         }
         #endregion
 
+       
+
         public frmServer()
         {
             InitializeComponent();         
@@ -295,17 +328,18 @@ namespace GOC_Tabulation_System
 
         private void frmServer_Load(object sender, EventArgs e)
         {
-            DatagridDesignTOP10();
+            LoadJudgeAndCandidates();
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            
+                      
         }
+    
 
         private void btnSubmitSemi_Click(object sender, EventArgs e)
         {
-   
+            
         }
 
         private void dgvSemiFinal_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -315,12 +349,11 @@ namespace GOC_Tabulation_System
 
         private void btnSubmitTOP_Click(object sender, EventArgs e)
         {
-            Compute_TOP10();
+           
         }
 
         private void btnPreviewTOP_Click(object sender, EventArgs e)
-        {
-            //dgvTOP10.Sort(dgvTOP10.Columns["TOTAL"], ListSortDirection.Descending); // To Sort the computed Score
+        {           
             dgvTOP10.Sort(dgvTOP10.Columns["TOTAL"], System.ComponentModel.ListSortDirection.Descending);
         }
 
@@ -328,6 +361,16 @@ namespace GOC_Tabulation_System
         {
            
         }
-        
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmSetting set = new frmSetting();
+            set.ShowDialog();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
