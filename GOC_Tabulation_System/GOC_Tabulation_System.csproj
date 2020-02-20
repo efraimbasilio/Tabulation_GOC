@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Final.cs" />
     <Compile Include="LongGownOnly.cs" />
     <Compile Include="Model\Candidates.cs" />
     <Compile Include="Connection\Config.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="SemiFinal.cs" />
     <Compile Include="Server\frmAddPicturecs.cs">
       <SubType>Form</SubType>
     </Compile>

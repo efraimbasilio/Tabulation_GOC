@@ -400,50 +400,37 @@ namespace GOC_Tabulation_System
             DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Information);
             if (result == DialogResult.Yes)
             {
-                LongGownOnly score = new LongGownOnly();
-                for (int i = 0; i < dgvAllEvent.Rows.Count; i++)
+                if (EventName.Equals("Long Gown Only"))
                 {
-
-                    score.Judge =  lblJudgeNo.Text;//Judge No
-                    score.Can_no = dgvAllEvent.Rows[i].Cells[0].Value.ToString();//Candidate Number    [0]
-                    score.Score = dgvAllEvent.Rows[i].Cells[1].Value.ToString();//Score per candidate [1]
-                    score.Save();
-                    //UPDATE `long_gown` SET `j1`= 10 WHERE `can_no`= 1;
-                    //try
-                    //{
-                    //    //prepare connection string 
-                    //    using (MySqlConnection con = new MySqlConnection(GOC_Tabulation_System.Config.GetConnectionString()))
-                    //    {
-
-                    //        //try to open connection
-                    //        con.Open();
-
-                    //        //string sql = "UPDATE long_gown SET  j1=@score WHERE can_no=@can_no;";
-                    //        string sql = string.Concat("UPDATE long_gown SET " + "j" + lblJudgeNo.Text + " = @score WHERE can_no=@can_no;");
-                            
-
-                    //        MySqlCommand cmd = new MySqlCommand(sql, con);
-
-                    //        cmd.Parameters.AddWithValue("can_no", dgvAllEvent.Rows[i].Cells[0].Value.ToString());
-                    //        cmd.Parameters.AddWithValue("score", dgvAllEvent.Rows[i].Cells[1].Value.ToString());
-                    //        cmd.Parameters.AddWithValue("judge", lblJudgeNo.Text);
-
-
-                    //        cmd.ExecuteNonQuery();
-
-                    //        //MessageBox.Show("Recorde Updated!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //    }
-                    //}
-                    //catch (MySqlException ex)
-                    //{
-                    //    MessageBox.Show("ERROR : " + ex.ToString(), "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                    //}
-
-
-
+                    #region LongGownOnly
+                    LongGownOnly score = new LongGownOnly();
+                    for (int i = 0; i < dgvAllEvent.Rows.Count; i++)
+                    {
+                        score.Judge = lblJudgeNo.Text;//Judge No
+                        score.Can_no = dgvAllEvent.Rows[i].Cells[0].Value.ToString();//Candidate Number    [0]
+                        score.Score = dgvAllEvent.Rows[i].Cells[1].Value.ToString();//Score per candidate [1]
+                        score.Save();
+                    }
+                    MessageBox.Show("Record Submitted!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    #endregion
                 }
-                MessageBox.Show("Record Submitted!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else if (EventName.Equals("Semi Final - Q and A"))
+                {
+                    #region SemiFinal
+                    SemiFinal score = new SemiFinal();
+                    for (int i = 0; i < dgvAllEvent.Rows.Count; i++)
+                    {
+                        score.Judge = lblJudgeNo.Text;//Judge No
+                        score.Can_no = dgvAllEvent.Rows[i].Cells[0].Value.ToString();//Candidate Number    [0]
+                        score.Score_beauty = dgvAllEvent.Rows[i].Cells[1].Value.ToString();//Score per candidate [1
+                        score.Score_wit = dgvAllEvent.Rows[i].Cells[2].Value.ToString();//Score per candidate [1]
+
+                        score.Save();
+                    }
+                    MessageBox.Show("Record Submitted!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    #endregion
+                }
+
             }
            
         }

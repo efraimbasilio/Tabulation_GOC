@@ -292,28 +292,30 @@ namespace GOC_Tabulation_System
         #region SEMI-FINAL - TO COMPUTE TOP 10
         private void DatagridDesignTOP10()
         {
-            dgvTOP10.ColumnCount = 20;
-            dgvTOP10.Columns[0].Name = "#";
+            //dgvTOP10.ColumnCount = 20;
+            //dgvTOP10.Columns[0].Name = "#";
 
-            dgvTOP10.Columns[1].Name = "B1";
-            dgvTOP10.Columns[2].Name = "W1";
-            dgvTOP10.Columns[3].Name = "B2";
-            dgvTOP10.Columns[4].Name = "W2";
-            dgvTOP10.Columns[5].Name = "B3";
-            dgvTOP10.Columns[6].Name = "W3";
-            dgvTOP10.Columns[7].Name = "B4";
-            dgvTOP10.Columns[8].Name = "W4";
-            dgvTOP10.Columns[9].Name = "B5";
-            dgvTOP10.Columns[10].Name = "W5";
-            dgvTOP10.Columns[11].Name = "B6";
-            dgvTOP10.Columns[12].Name = "W6";
-            dgvTOP10.Columns[13].Name = "B7";
-            dgvTOP10.Columns[14].Name = "W7";
-            dgvTOP10.Columns[15].Name = "B8";
-            dgvTOP10.Columns[16].Name = "W8";
-            dgvTOP10.Columns[17].Name = "B9";
-            dgvTOP10.Columns[18].Name = "W9";
-            dgvTOP10.Columns[19].Name = "TOTAL";
+            //dgvTOP10.Columns[1].Name = "B1";
+            //dgvTOP10.Columns[2].Name = "W1";
+            //dgvTOP10.Columns[3].Name = "B2";
+            //dgvTOP10.Columns[4].Name = "W2";
+            //dgvTOP10.Columns[5].Name = "B3";
+            //dgvTOP10.Columns[6].Name = "W3";
+            //dgvTOP10.Columns[7].Name = "B4";
+            //dgvTOP10.Columns[8].Name = "W4";
+            //dgvTOP10.Columns[9].Name = "B5";
+            //dgvTOP10.Columns[10].Name = "W5";
+            //dgvTOP10.Columns[11].Name = "B6";
+            //dgvTOP10.Columns[12].Name = "W6";
+            //dgvTOP10.Columns[13].Name = "B7";
+            //dgvTOP10.Columns[14].Name = "W7";
+            //dgvTOP10.Columns[15].Name = "B8";
+            //dgvTOP10.Columns[16].Name = "W8";
+            //dgvTOP10.Columns[17].Name = "B9";
+            //dgvTOP10.Columns[18].Name = "W9";
+            //dgvTOP10.Columns[19].Name = "TOTAL";
+            Utilities util = new Utilities();
+            util.LoadDataTable(dgvTOP10, "semi_final");
 
             dgvTOP10.Columns[0].Width = 50;
             dgvTOP10.Columns[1].Width = 50;
@@ -336,11 +338,15 @@ namespace GOC_Tabulation_System
             dgvTOP10.Columns[18].Width = 50;
             dgvTOP10.Columns[19].Width = 50;
 
-            for (int i = 1; i <= 10; i++)
-            {
 
-                dgvTOP10.Rows.Add(i, "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00");
-            }
+           
+            //for (int i = 1; i <= 10; i++)
+            //{
+
+            //    dgvTOP10.Rows.Add(i, "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00");
+            //}
+
+
         }
 
         private void Compute_TOP10()
@@ -373,8 +379,9 @@ namespace GOC_Tabulation_System
 
         private void frmServer_Load(object sender, EventArgs e)
         {
-            LoadJudgeAndCandidates();
-            Datagrid_LongGownOnly();
+            //LoadJudgeAndCandidates();
+            //Datagrid_LongGownOnly();
+            DatagridDesignTOP10();
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -413,7 +420,33 @@ namespace GOC_Tabulation_System
 
         private void btnSubmitTOP_Click(object sender, EventArgs e)
         {
-           
+            SemiFinal semi = new SemiFinal();
+            for (int i = 0; i < dgvTOP10.RowCount; i++)
+            {
+                semi.Can_no = dgvTOP10.Rows[i].Cells[0].Value.ToString();
+                semi.B1 = dgvTOP10.Rows[i].Cells[1].Value.ToString();
+                semi.W1 = dgvTOP10.Rows[i].Cells[2].Value.ToString();
+                semi.B2 = dgvTOP10.Rows[i].Cells[3].Value.ToString();
+                semi.W2 = dgvTOP10.Rows[i].Cells[4].Value.ToString();
+                semi.B3 = dgvTOP10.Rows[i].Cells[5].Value.ToString();
+                semi.W3 = dgvTOP10.Rows[i].Cells[6].Value.ToString();
+                semi.B4 = dgvTOP10.Rows[i].Cells[7].Value.ToString();
+                semi.W4 = dgvTOP10.Rows[i].Cells[8].Value.ToString();
+                semi.B5 = dgvTOP10.Rows[i].Cells[9].Value.ToString();
+                semi.W5 = dgvTOP10.Rows[i].Cells[10].Value.ToString();
+                semi.B6 = dgvTOP10.Rows[i].Cells[11].Value.ToString();
+                semi.W6 = dgvTOP10.Rows[i].Cells[12].Value.ToString();
+                semi.B7 = dgvTOP10.Rows[i].Cells[13].Value.ToString();
+                semi.W7 = dgvTOP10.Rows[i].Cells[14].Value.ToString();
+                semi.B8 = dgvTOP10.Rows[i].Cells[15].Value.ToString();
+                semi.W8 = dgvTOP10.Rows[i].Cells[16].Value.ToString();
+                semi.B9 = dgvTOP10.Rows[i].Cells[17].Value.ToString();
+                semi.W9 = dgvTOP10.Rows[i].Cells[18].Value.ToString();
+                semi.Total = dgvTOP10.Rows[i].Cells[19].Value.ToString();
+
+                semi.Save_Dummy_Semi();
+            }
+            MessageBox.Show("Record Saved!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnPreviewTOP_Click(object sender, EventArgs e)
@@ -488,3 +521,4 @@ namespace GOC_Tabulation_System
         }
     }
 }
+
