@@ -208,13 +208,14 @@
             // 
             this.cmbEvents.FormattingEnabled = true;
             this.cmbEvents.Items.AddRange(new object[] {
-            "Long Gown",
+            "Long Gown Only",
             "Semi Final - Q and A",
             "Final - Q and A"});
             this.cmbEvents.Location = new System.Drawing.Point(15, 113);
             this.cmbEvents.Name = "cmbEvents";
             this.cmbEvents.Size = new System.Drawing.Size(156, 23);
             this.cmbEvents.TabIndex = 17;
+            this.cmbEvents.SelectedIndexChanged += new System.EventHandler(this.cmbEvents_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -350,7 +351,6 @@
         private System.Windows.Forms.Button btnPreviewTOP;
         private System.Windows.Forms.Button btnSubmitTOP;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox cmbEvents;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -359,5 +359,6 @@
         private System.Windows.Forms.Label lblJudges;
         private System.Windows.Forms.Label lblCandidates;
         private System.Windows.Forms.Button button2;
+        public System.Windows.Forms.ComboBox cmbEvents;
     }
 }

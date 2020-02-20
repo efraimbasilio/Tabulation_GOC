@@ -473,5 +473,14 @@ namespace GOC_Tabulation_System
         {
             util.NoBlankScore(dgvPreElim);
         }
+
+
+        private void cmbEvents_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            frmTop10 top = new frmTop10();
+            top.EventName = cmbEvents.Text;
+            top.All_Event_DataGridView_Design();
+            top.ShowDialog();
+        }
     }
 }

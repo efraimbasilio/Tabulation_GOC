@@ -9,6 +9,8 @@ namespace GOC_Tabulation_System
 {
     class Utilities
     {
+
+
         public void NoBlankScore(DataGridView dgv)
         {
             foreach (DataGridViewRow rw in dgv.Rows)
@@ -32,11 +34,11 @@ namespace GOC_Tabulation_System
             {   //Here 2 cell is target value and 1 cell is Volume                
                 if (Convert.ToDouble(Myrow.Cells[1].Value) < minimum_score)// Or your condition 
                 {
-                    Myrow.Cells[1].Value = "0.00";
+                    Myrow.Cells[1].Value = "00.00";
                 }
                 else if (Convert.ToDouble(Myrow.Cells[1].Value) > maximum_score)                               
                 {
-                    Myrow.Cells[1].Value = "0.00";
+                    Myrow.Cells[1].Value = "00.00";
                 }
                 else
                 {
@@ -52,16 +54,36 @@ namespace GOC_Tabulation_System
             {   //Here 2 cell is target value and 1 cell is Volume                
                 if (Convert.ToDouble(Myrow.Cells[2].Value) < minimum_score)// Or your condition 
                 {
-                    Myrow.Cells[2].Value = "0.00";
+                    Myrow.Cells[2].Value = "00.00";
                 }
                 else if (Convert.ToDouble(Myrow.Cells[2].Value) > maximum_score)
                 {
-                    Myrow.Cells[2].Value = "0.00";
+                    Myrow.Cells[2].Value = "00.00";
                 }
                 else
                 {
                     double a = Convert.ToDouble(Myrow.Cells[2].Value.ToString());
                     Myrow.Cells[2].Value = a.ToString("n");
+                }
+            }
+        }
+
+        public void ScoreValidator_LONG_GOWN_ONLY(DataGridView dgv, int minimum_score, int maximum_score)
+        {
+            foreach (DataGridViewRow Myrow in dgv.Rows)
+            {   //Here 2 cell is target value and 1 cell is Volume                
+                if (Convert.ToDouble(Myrow.Cells[1].Value) < minimum_score)// Or your condition 
+                {
+                    Myrow.Cells[1].Value = "00.00";
+                }
+                else if (Convert.ToDouble(Myrow.Cells[1].Value) > maximum_score)
+                {
+                    Myrow.Cells[1].Value = "00.00";
+                }
+                else
+                {
+                    double a = Convert.ToDouble(Myrow.Cells[1].Value.ToString());
+                    Myrow.Cells[1].Value = a.ToString("n");
                 }
             }
         }

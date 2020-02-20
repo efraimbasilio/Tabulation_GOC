@@ -12,9 +12,11 @@ namespace GOC_Tabulation_System
 {
     public partial class frmTop10 : Form
     {       
-        public string EventName = "Top10"; //Current Event Selected in the Server
+        public string EventName; //Current Event Selected in the Server
         public int topFinalist = 10;
-        public int _minScore_BEAUTY = 30, _maxScore_BEAUTY = 60, _minScore_WIT_INT = 20, _maxScore_WIT_INT = 40;
+        public int totalCandidates = 18;
+
+        //public int _minScore_BEAUTY = 30, _maxScore_BEAUTY = 60, _minScore_WIT_INT = 20, _maxScore_WIT_INT = 40;
 
         Utilities util = new Utilities();
 
@@ -151,7 +153,7 @@ namespace GOC_Tabulation_System
 
         public void All_Event_DataGridView_Design()
         {            
-            if (EventName.Equals("Top10"))
+            if (EventName.Equals("Semi Final - Q and A"))
             {
                 #region Design Code For TOP 10
                 lblEvent.Text = EventName;
@@ -193,7 +195,8 @@ namespace GOC_Tabulation_System
                 ((DataGridViewTextBoxColumn)dgvAllEvent.Columns[2]).MaxInputLength = 5;
                 #endregion
             }
-            else if(EventName.Equals("Final"))
+
+            else if(EventName.Equals("Final - Q and A"))
             {
                 #region Design Code For TOP 10
                 lblEvent.Text = EventName;
@@ -236,13 +239,97 @@ namespace GOC_Tabulation_System
                 #endregion
             }
 
+            else if (EventName.Equals("Long Gown with Beauty Face"))
+            {
+                #region Design Code For TOP 10
+                lblEvent.Text = EventName;
+
+                //Header Contetnt
+                dgvAllEvent.ColumnCount = 3;
+                dgvAllEvent.Columns[0].Name = "#";
+                dgvAllEvent.Columns[1].Name = "Beauty of Face and Body Proportion [25 - 13]";
+                dgvAllEvent.Columns[2].Name = "Long Gown Competition [25 - 13]";
+                //dgvAllEvent.Columns[3].Name = "Total Score";
+
+                //Alignments
+                dgvAllEvent.Columns[0].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvAllEvent.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+                dgvAllEvent.Columns[1].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvAllEvent.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+                dgvAllEvent.Columns[2].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvAllEvent.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+                //readonly Columns
+                dgvAllEvent.Columns[0].ReadOnly = true;
+
+                //Display Sizes
+                dgvAllEvent.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                dgvAllEvent.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                dgvAllEvent.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                //dgvAllEvent.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+
+                //populate with default data
+                for (int i = 1; i <= totalCandidates; i++)
+                {
+                    dgvAllEvent.Rows.Add(i, "00.00", "00.00");
+                }
+
+                //Limit Input in datagrid
+                ((DataGridViewTextBoxColumn)dgvAllEvent.Columns[1]).MaxInputLength = 5;
+                ((DataGridViewTextBoxColumn)dgvAllEvent.Columns[2]).MaxInputLength = 5;
+                #endregion
+            }
+
+            else if (EventName.Equals("Long Gown Only"))
+            {
+                //Need Modification
+                #region Design Code For TOP 10
+                lblEvent.Text = EventName;
+
+                //Header Contetnt
+                dgvAllEvent.ColumnCount = 2;
+                dgvAllEvent.Columns[0].Name = "#";
+                //dgvAllEvent.Columns[1].Name = "Beauty of Face and Body Proportion [25 - 13]";
+                dgvAllEvent.Columns[1].Name = "Long Gown Competition [25 - 13]";
+                //dgvAllEvent.Columns[3].Name = "Total Score";
+
+                //Alignments
+                dgvAllEvent.Columns[0].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvAllEvent.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+                dgvAllEvent.Columns[1].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvAllEvent.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+                //dgvAllEvent.Columns[2].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                //dgvAllEvent.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+                //readonly Columns
+                dgvAllEvent.Columns[0].ReadOnly = true;
+
+                //Display Sizes
+                dgvAllEvent.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                dgvAllEvent.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                //dgvAllEvent.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                //dgvAllEvent.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+
+                //populate with default data
+                for (int i = 1; i <= totalCandidates; i++)
+                {
+                    dgvAllEvent.Rows.Add(i, "00.00");
+                }
+
+                //Limit Input in datagrid
+                ((DataGridViewTextBoxColumn)dgvAllEvent.Columns[1]).MaxInputLength = 5;
+                //((DataGridViewTextBoxColumn)dgvAllEvent.Columns[2]).MaxInputLength = 5;
+                #endregion
+            }
         }
-       
+        
         public frmTop10()
         {
-            InitializeComponent();
-           
-            All_Event_DataGridView_Design();
+            InitializeComponent();                      
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -257,9 +344,48 @@ namespace GOC_Tabulation_System
        
         private void dgvAllEvent_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            util.NoBlankScore(dgvAllEvent);
-            util.ScoreValidator_BEAUTY(dgvAllEvent, _minScore_BEAUTY, _maxScore_BEAUTY);
-            util.ScoreValidator_WIT_INT(dgvAllEvent, _minScore_WIT_INT, _maxScore_WIT_INT);
+            //STATIC VALUES
+            if (EventName.Equals("Semi Final - Q and A"))
+            {
+                //STATIC VALUES
+                int _minScore_BEAUTY = 30, _maxScore_BEAUTY = 60, _minScore_WIT_INT = 20, _maxScore_WIT_INT = 40; 
+               util.ScoreValidator_BEAUTY(dgvAllEvent, _minScore_BEAUTY, _maxScore_BEAUTY);
+               util.ScoreValidator_WIT_INT(dgvAllEvent, _minScore_WIT_INT, _maxScore_WIT_INT);
+            }
+            else if (EventName.Equals("Final - Q and A"))
+            {
+                //STATIC VALUES
+                int _minScore_BEAUTY = 35, _maxScore_BEAUTY = 70, _minScore_WIT_INT = 15, _maxScore_WIT_INT = 30;
+                util.NoBlankScore(dgvAllEvent);
+                util.ScoreValidator_BEAUTY(dgvAllEvent, _minScore_BEAUTY, _maxScore_BEAUTY);
+                util.ScoreValidator_WIT_INT(dgvAllEvent, _minScore_WIT_INT, _maxScore_WIT_INT);
+            }
+
+            else if (EventName.Equals("Final - Q and A"))
+            {
+                //STATIC VALUES
+                int _minScore_BEAUTY = 35, _maxScore_BEAUTY = 70, _minScore_WIT_INT = 15, _maxScore_WIT_INT = 30;
+                util.NoBlankScore(dgvAllEvent);
+                util.ScoreValidator_BEAUTY(dgvAllEvent, _minScore_BEAUTY, _maxScore_BEAUTY);
+                util.ScoreValidator_WIT_INT(dgvAllEvent, _minScore_WIT_INT, _maxScore_WIT_INT);
+            }
+
+            else if (EventName.Equals("Long Gown with Beauty Face"))
+            {
+                //STATIC VALUES
+                int _minScore_BEAUTY = 13, _maxScore_BEAUTY = 25, _minScore_WIT_INT = 13, _maxScore_WIT_INT = 25;
+                util.NoBlankScore(dgvAllEvent);
+                util.ScoreValidator_BEAUTY(dgvAllEvent, _minScore_BEAUTY, _maxScore_BEAUTY);
+                util.ScoreValidator_WIT_INT(dgvAllEvent, _minScore_WIT_INT, _maxScore_WIT_INT);
+            }
+
+            else if (EventName.Equals("Long Gown Only"))
+            { 
+                //STATIC VALUES
+                int _minScore = 13, _maxScore= 25;
+                util.ScoreValidator_LONG_GOWN_ONLY(dgvAllEvent, _minScore, _maxScore);
+            }
+
 
         }
     }
