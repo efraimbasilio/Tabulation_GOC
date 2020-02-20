@@ -15,6 +15,7 @@ namespace GOC_Tabulation_System
 {
     public partial class frmClient : Form
     {
+        Utilities util = new Utilities();
         public frmClient()
         {
             InitializeComponent();            
@@ -26,6 +27,13 @@ namespace GOC_Tabulation_System
             {
                 dataGridView1.Rows.Add(i,"0.00");
             }
+
+
+            dataGridView1.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(dataGridView1_EditingControlShowing);
+            dataGridView1.CellEndEdit += new DataGridViewCellEventHandler(dataGridView1_CellEndEdit);
+
+            ((DataGridViewTextBoxColumn)dataGridView1.Columns[1]).MaxInputLength = 5;
+            ((DataGridViewTextBoxColumn)dataGridView1.Columns[1]).MaxInputLength = 5;
         }
 
         public void AddImageDataGrid(DataGridView dgv)
@@ -130,5 +138,59 @@ namespace GOC_Tabulation_System
 
         }
 
+        private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            util.NoBlankScore(dataGridView1);
+            util.InputToDouble(dataGridView1);
+        }
+
+        private void dataGridView1_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {           
+            //control input for column 4
+            e.Control.KeyPress -= new KeyPressEventHandler(colScores_KeyPress);
+
+            //column to control input
+            if ((dataGridView1.CurrentCell.ColumnIndex == 1))
+            {
+                TextBox tb = e.Control as TextBox;
+                if (tb != null)
+                {
+                    tb.KeyPress += new KeyPressEventHandler(colScores_KeyPress);
+                    tb.KeyDown -= dataGridView1_KeyDown;
+                    tb.KeyDown += dataGridView1_KeyDown;
+                }
+            }
+
+
+        }
+
+        private void colScores_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.' )
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if (e.KeyChar == '.' && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
+
+            //if (e.Control && (e.KeyCode == Keys.C | e.KeyCode == Keys.V))
+            //{
+            //    e.SuppressKeyPress = true;
+            //}
+
+        }
+
+        private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.V)
+            {
+                // cancel the "paste" function
+                e.SuppressKeyPress = true;
+            }
+        }
     }
 }

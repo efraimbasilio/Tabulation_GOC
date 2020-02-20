@@ -31,9 +31,9 @@
             this.dgvPreElim = new System.Windows.Forms.DataGridView();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.dgvSemiFinal = new System.Windows.Forms.DataGridView();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.btnPreview = new System.Windows.Forms.Button();
@@ -50,6 +50,7 @@
             this.frmLock = new System.Windows.Forms.ComboBox();
             this.lblJudges = new System.Windows.Forms.Label();
             this.lblCandidates = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPreElim)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -66,6 +67,9 @@
             this.dgvPreElim.RowHeadersVisible = false;
             this.dgvPreElim.Size = new System.Drawing.Size(749, 464);
             this.dgvPreElim.TabIndex = 0;
+            this.dgvPreElim.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPreElim_CellEndEdit);
+            this.dgvPreElim.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPreElim_CellEnter);
+            this.dgvPreElim.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvPreElim_EditingControlShowing);
             // 
             // linkLabel2
             // 
@@ -89,16 +93,6 @@
             this.panel2.Size = new System.Drawing.Size(1366, 38);
             this.panel2.TabIndex = 5;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(17, 44);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "DB Setting";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::GOC_Tabulation_System.Properties.Resources.close;
@@ -119,6 +113,16 @@
             this.label1.Size = new System.Drawing.Size(159, 26);
             this.label1.TabIndex = 1;
             this.label1.Text = "Tabulation Server";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(17, 44);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 17;
+            this.button1.Text = "DB Setting";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dgvSemiFinal
             // 
@@ -143,7 +147,7 @@
             // 
             // btnPreview
             // 
-            this.btnPreview.Location = new System.Drawing.Point(843, 39);
+            this.btnPreview.Location = new System.Drawing.Point(924, 39);
             this.btnPreview.Name = "btnPreview";
             this.btnPreview.Size = new System.Drawing.Size(75, 23);
             this.btnPreview.TabIndex = 11;
@@ -277,11 +281,22 @@
             this.lblCandidates.TabIndex = 26;
             this.lblCandidates.Text = "0";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(843, 39);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 27;
+            this.button2.Text = "Reset";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // frmServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1366, 768);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.lblCandidates);
             this.Controls.Add(this.lblJudges);
             this.Controls.Add(this.button1);
@@ -343,5 +358,6 @@
         private System.Windows.Forms.ComboBox frmLock;
         private System.Windows.Forms.Label lblJudges;
         private System.Windows.Forms.Label lblCandidates;
+        private System.Windows.Forms.Button button2;
     }
 }

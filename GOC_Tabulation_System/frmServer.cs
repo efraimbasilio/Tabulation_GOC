@@ -18,7 +18,12 @@ namespace GOC_Tabulation_System
         List<Judges> js = new List<Judges>();
         List<Candidates> cs = new List<Candidates>();
 
+        Utilities util = new Utilities();
+
         #region Functions
+
+        
+       
         public void LoadJudgeAndCandidates()
         {
             //Get the number of Judges
@@ -78,6 +83,44 @@ namespace GOC_Tabulation_System
 
                 dgvPreElim.Rows.Add(i, "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00", "00.00");
             }
+
+            //ServerScores score = new ServerScores();
+            //for (int i = 0; i < dgvPreElim.Rows.Count; i++)
+            //{
+            //    score.Can_no = dgvPreElim.Rows[i].Cells[0].Value.ToString();
+            //    score.J1 = dgvPreElim.Rows[i].Cells[1].Value.ToString();
+            //    score.J2 = dgvPreElim.Rows[i].Cells[2].Value.ToString();
+            //    score.J3 = dgvPreElim.Rows[i].Cells[3].Value.ToString();
+            //    score.J4 = dgvPreElim.Rows[i].Cells[4].Value.ToString();
+            //    score.J5 = dgvPreElim.Rows[i].Cells[5].Value.ToString();
+            //    score.J6 = dgvPreElim.Rows[i].Cells[6].Value.ToString();
+            //    score.J7 = dgvPreElim.Rows[i].Cells[7].Value.ToString();
+            //    score.J8 = dgvPreElim.Rows[i].Cells[8].Value.ToString();
+            //    score.J9 = dgvPreElim.Rows[i].Cells[9].Value.ToString();
+            //    score.Total = dgvPreElim.Rows[i].Cells[10].Value.ToString();
+
+            //    score.Save();
+            //}
+            //MessageBox.Show("Record Long Gown Reseted!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            ServerScores score = new ServerScores();
+            for (int i = 0; i < dgvPreElim.Rows.Count; i++)
+            {
+                score.Can_no = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[0].Value.ToString());
+                score.J1 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[1].Value.ToString());
+                score.J2 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[2].Value.ToString());
+                score.J3 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[3].Value.ToString());
+                score.J4 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[4].Value.ToString());
+                score.J5 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[5].Value.ToString());
+                score.J6 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[6].Value.ToString());
+                score.J7 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[7].Value.ToString());
+                score.J8 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[8].Value.ToString());
+                score.J9 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[9].Value.ToString());
+                score.Total = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[10].Value.ToString());
+
+                score.Update();
+            }
+            MessageBox.Show("Record Submitted!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public void Datagrid_LongGownAndBeauty()
@@ -176,9 +219,11 @@ namespace GOC_Tabulation_System
                 //To show the Computed Score in the last Column
                 dgvPreElim.Rows[i].Cells[10].Value = sum.ToString("n");
             }
-            this.dgvPreElim.Sort(this.dgvPreElim.Columns["TOTAL"], ListSortDirection.Descending); // To Sort the computed Score
-        }
 
+           
+            //this.dgvPreElim.Sort(this.dgvPreElim.Columns["TOTAL"], ListSortDirection.Descending); // To Sort the computed Score
+        }
+       
         #endregion
 
         #region ELIMINATION DATAGRID(TOP 10 or TOP 9)
@@ -329,11 +374,30 @@ namespace GOC_Tabulation_System
         private void frmServer_Load(object sender, EventArgs e)
         {
             LoadJudgeAndCandidates();
+            Datagrid_LongGownOnly();
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-                      
+            Compute_LongGownOnly();
+            ServerScores score = new ServerScores();
+            for (int i = 0; i < dgvPreElim.Rows.Count; i++)
+            {
+                score.Can_no = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[0].Value.ToString());
+                score.J1 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[1].Value.ToString());
+                score.J2 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[2].Value.ToString());
+                score.J3 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[3].Value.ToString());
+                score.J4 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[4].Value.ToString());
+                score.J5 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[5].Value.ToString());
+                score.J6 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[6].Value.ToString());
+                score.J7 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[7].Value.ToString());
+                score.J8 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[8].Value.ToString());
+                score.J9 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[9].Value.ToString());
+                score.Total = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[10].Value.ToString());
+
+                score.Update();
+            }
+            MessageBox.Show("Record Submitted!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     
 
@@ -371,6 +435,43 @@ namespace GOC_Tabulation_System
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvPreElim_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        #region One decimal point only
+        private void dgvPreElim_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {                  
+            e.Control.KeyPress += new KeyPressEventHandler(Control_KeyPress);           
+        }
+
+        private void Control_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if (e.KeyChar == '.'
+                && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
+        }
+        #endregion
+
+        private void dgvPreElim_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            util.NoBlankScore(dgvPreElim);
         }
     }
 }
