@@ -103,24 +103,24 @@ namespace GOC_Tabulation_System
             //}
             //MessageBox.Show("Record Long Gown Reseted!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            ServerScores score = new ServerScores();
-            for (int i = 0; i < dgvPreElim.Rows.Count; i++)
-            {
-                score.Can_no = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[0].Value.ToString());
-                score.J1 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[1].Value.ToString());
-                score.J2 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[2].Value.ToString());
-                score.J3 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[3].Value.ToString());
-                score.J4 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[4].Value.ToString());
-                score.J5 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[5].Value.ToString());
-                score.J6 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[6].Value.ToString());
-                score.J7 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[7].Value.ToString());
-                score.J8 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[8].Value.ToString());
-                score.J9 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[9].Value.ToString());
-                score.Total = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[10].Value.ToString());
+            //ServerScores score = new ServerScores();
+            //for (int i = 0; i < dgvPreElim.Rows.Count; i++)
+            //{
+            //    score.Can_no = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[0].Value.ToString());
+            //    score.J1 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[1].Value.ToString());
+            //    score.J2 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[2].Value.ToString());
+            //    score.J3 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[3].Value.ToString());
+            //    score.J4 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[4].Value.ToString());
+            //    score.J5 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[5].Value.ToString());
+            //    score.J6 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[6].Value.ToString());
+            //    score.J7 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[7].Value.ToString());
+            //    score.J8 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[8].Value.ToString());
+            //    score.J9 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[9].Value.ToString());
+            //    score.Total = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[10].Value.ToString());
 
-                score.Update();
-            }
-            MessageBox.Show("Record Submitted!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    score.Update();
+            //}
+            //MessageBox.Show("Record Submitted!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public void Datagrid_LongGownAndBeauty()
@@ -478,7 +478,11 @@ namespace GOC_Tabulation_System
         private void cmbEvents_SelectedIndexChanged(object sender, EventArgs e)
         {
             frmTop10 top = new frmTop10();
+
             top.EventName = cmbEvents.Text;
+            top.topFinalist = Convert.ToInt32(lblNoSemiFinalist.Text);
+            top.totalCandidates = Convert.ToInt32(lblCandidates.Text);
+
             top.All_Event_DataGridView_Design();
             top.ShowDialog();
         }

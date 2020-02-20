@@ -13,8 +13,8 @@ namespace GOC_Tabulation_System
     public partial class frmTop10 : Form
     {       
         public string EventName; //Current Event Selected in the Server
-        public int topFinalist = 10;
-        public int totalCandidates = 18;
+        public int topFinalist;
+        public int totalCandidates;
 
         //public int _minScore_BEAUTY = 30, _maxScore_BEAUTY = 60, _minScore_WIT_INT = 20, _maxScore_WIT_INT = 40;
 
@@ -183,8 +183,9 @@ namespace GOC_Tabulation_System
                 dgvAllEvent.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
                 dgvAllEvent.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
                 //dgvAllEvent.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-             
+
                 //populate with default data
+               
                 for (int i = 1; i <= topFinalist; i++)
                 {
                     dgvAllEvent.Rows.Add(i, "00.00", "00.00");
@@ -284,7 +285,8 @@ namespace GOC_Tabulation_System
 
             else if (EventName.Equals("Long Gown Only"))
             {
-                //Need Modification
+                //util.LoadDataTable(dgvAllEvent, "long_gown");
+
                 #region Design Code For TOP 10
                 lblEvent.Text = EventName;
 
@@ -315,10 +317,11 @@ namespace GOC_Tabulation_System
                 //dgvAllEvent.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
 
                 //populate with default data
-                for (int i = 1; i <= totalCandidates; i++)
-                {
-                    dgvAllEvent.Rows.Add(i, "00.00");
-                }
+               
+                //for (int i = 1; i <= totalCandidates; i++)
+                //{
+                //    dgvAllEvent.Rows.Add(i, "00.00");
+                //}
 
                 //Limit Input in datagrid
                 ((DataGridViewTextBoxColumn)dgvAllEvent.Columns[1]).MaxInputLength = 5;

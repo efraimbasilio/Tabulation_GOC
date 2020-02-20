@@ -51,6 +51,8 @@
             this.lblJudges = new System.Windows.Forms.Label();
             this.lblCandidates = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.lblNoSemiFinalist = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPreElim)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -209,6 +211,7 @@
             this.cmbEvents.FormattingEnabled = true;
             this.cmbEvents.Items.AddRange(new object[] {
             "Long Gown Only",
+            "Long Gown with Beauty Face",
             "Semi Final - Q and A",
             "Final - Q and A"});
             this.cmbEvents.Location = new System.Drawing.Point(15, 113);
@@ -247,7 +250,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 198);
+            this.label5.Location = new System.Drawing.Point(12, 257);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(63, 15);
             this.label5.TabIndex = 24;
@@ -259,7 +262,7 @@
             this.frmLock.Items.AddRange(new object[] {
             "Active",
             "Inactive"});
-            this.frmLock.Location = new System.Drawing.Point(13, 216);
+            this.frmLock.Location = new System.Drawing.Point(13, 275);
             this.frmLock.Name = "frmLock";
             this.frmLock.Size = new System.Drawing.Size(69, 23);
             this.frmLock.TabIndex = 23;
@@ -267,7 +270,7 @@
             // lblJudges
             // 
             this.lblJudges.AutoSize = true;
-            this.lblJudges.Location = new System.Drawing.Point(140, 143);
+            this.lblJudges.Location = new System.Drawing.Point(149, 143);
             this.lblJudges.Name = "lblJudges";
             this.lblJudges.Size = new System.Drawing.Size(14, 15);
             this.lblJudges.TabIndex = 25;
@@ -276,7 +279,7 @@
             // lblCandidates
             // 
             this.lblCandidates.AutoSize = true;
-            this.lblCandidates.Location = new System.Drawing.Point(140, 168);
+            this.lblCandidates.Location = new System.Drawing.Point(149, 168);
             this.lblCandidates.Name = "lblCandidates";
             this.lblCandidates.Size = new System.Drawing.Size(14, 15);
             this.lblCandidates.TabIndex = 26;
@@ -292,11 +295,31 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // lblNoSemiFinalist
+            // 
+            this.lblNoSemiFinalist.AutoSize = true;
+            this.lblNoSemiFinalist.Location = new System.Drawing.Point(149, 195);
+            this.lblNoSemiFinalist.Name = "lblNoSemiFinalist";
+            this.lblNoSemiFinalist.Size = new System.Drawing.Size(14, 15);
+            this.lblNoSemiFinalist.TabIndex = 29;
+            this.lblNoSemiFinalist.Text = "9";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(11, 195);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(132, 15);
+            this.label7.TabIndex = 28;
+            this.label7.Text = "Number of Semi Finalist:";
+            // 
             // frmServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1366, 768);
+            this.Controls.Add(this.lblNoSemiFinalist);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.lblCandidates);
             this.Controls.Add(this.lblJudges);
@@ -360,5 +383,7 @@
         private System.Windows.Forms.Label lblCandidates;
         private System.Windows.Forms.Button button2;
         public System.Windows.Forms.ComboBox cmbEvents;
+        private System.Windows.Forms.Label lblNoSemiFinalist;
+        private System.Windows.Forms.Label label7;
     }
 }

@@ -23,6 +23,8 @@ namespace GOC_Tabulation_System
         protected string j9;
         protected string total;
 
+
+        #region Properties
         public int Id
         {
             get { return id; }
@@ -94,8 +96,10 @@ namespace GOC_Tabulation_System
             get { return total; }
             set { total = value; }
         }
+        #endregion
 
-
+        List<ServerScores> scores = new List<ServerScores>();
+        #region For Long Gown Scores
         public void Save()
         {
             try
@@ -176,6 +180,45 @@ namespace GOC_Tabulation_System
 
             }
         }
+        #endregion
+
+        #region Semi Finals Scores
+        public List<ServerScores> Load_Semi_Canidates_Number()
+        {
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(GOC_Tabulation_System.Config.GetConnectionString()))
+                {
+                    con.Open();
+
+                    string sql = "SELECT * FROM semi_final";
+
+                    MySqlCommand cmd = new MySqlCommand(sql, con);
+
+                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    //loop while have record
+                    while (reader.Read())
+                    {
+                        //instantiate model
+                        ServerScores semi_score = new ServerScores();
+
+                        //prepare properties
+                        semi_score.id = Convert.ToInt32(reader["id"].ToString());
+                        semi_score.can_no = reader["can_no"].ToString();
+
+                        scores.Add(semi_score);
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+
+                MessageBox.Show("ERROR : " + ex.ToString(), "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return scores;
+        }//End of Load
+        #endregion
 
     }
 }
