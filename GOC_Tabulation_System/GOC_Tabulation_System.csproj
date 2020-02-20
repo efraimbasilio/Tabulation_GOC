@@ -52,25 +52,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Candidates.cs" />
-    <Compile Include="Config.cs" />
-    <Compile Include="CrystalReport1.cs">
+    <Compile Include="Model\Candidates.cs" />
+    <Compile Include="Connection\Config.cs" />
+    <Compile Include="Report\CrystalReport1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CrystalReport1.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CystalReportConnection.cs" />
+    <Compile Include="Connection\CystalReportConnection.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAddPicturecs.cs">
+    <Compile Include="Server\frmAddPicturecs.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAddPicturecs.Designer.cs">
+    <Compile Include="Server\frmAddPicturecs.Designer.cs">
       <DependentUpon>frmAddPicturecs.cs</DependentUpon>
     </Compile>
     <Compile Include="frmClient.cs">
@@ -79,16 +79,16 @@
     <Compile Include="frmClient.Designer.cs">
       <DependentUpon>frmClient.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmServer.cs">
+    <Compile Include="Server\frmServer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmServer.Designer.cs">
+    <Compile Include="Server\frmServer.Designer.cs">
       <DependentUpon>frmServer.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSetting.cs">
+    <Compile Include="Server\frmSetting.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSetting.Designer.cs">
+    <Compile Include="Server\frmSetting.Designer.cs">
       <DependentUpon>frmSetting.cs</DependentUpon>
     </Compile>
     <Compile Include="frmTop10.cs">
@@ -97,28 +97,28 @@
     <Compile Include="frmTop10.Designer.cs">
       <DependentUpon>frmTop10.cs</DependentUpon>
     </Compile>
-    <Compile Include="Judges.cs" />
+    <Compile Include="Model\Judges.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServerScores.cs" />
-    <Compile Include="Utilities.cs" />
-    <EmbeddedResource Include="CrystalReport1.rpt">
+    <Compile Include="Model\ServerScores.cs" />
+    <Compile Include="Utility_Tools\Utilities.cs" />
+    <EmbeddedResource Include="Report\CrystalReport1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport1.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAddPicturecs.resx">
+    <EmbeddedResource Include="Server\frmAddPicturecs.resx">
       <DependentUpon>frmAddPicturecs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmClient.resx">
       <DependentUpon>frmClient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmServer.resx">
+    <EmbeddedResource Include="Server\frmServer.resx">
       <DependentUpon>frmServer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSetting.resx">
+    <EmbeddedResource Include="Server\frmSetting.resx">
       <DependentUpon>frmSetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTop10.resx">
@@ -207,9 +207,7 @@
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
