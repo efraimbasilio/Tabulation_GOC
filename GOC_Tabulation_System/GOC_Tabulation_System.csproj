@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LongGownOnly.cs" />
     <Compile Include="Model\Candidates.cs" />
     <Compile Include="Connection\Config.cs" />
     <Compile Include="Report\CrystalReport1.cs">

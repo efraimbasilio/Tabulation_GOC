@@ -23,7 +23,6 @@ namespace GOC_Tabulation_System
         protected string j9;
         protected string total;
 
-
         #region Properties
         public int Id
         {
@@ -180,6 +179,47 @@ namespace GOC_Tabulation_System
 
             }
         }
+
+        public void Update_Long_Gown_Score()
+        {
+            try
+            {
+                //prepare connection string 
+                using (MySqlConnection con = new MySqlConnection(GOC_Tabulation_System.Config.GetConnectionString()))
+                {
+
+                    //try to open connection
+                    con.Open();
+
+                    string sql = "UPDATE long_gown SET can_no=@can_no, j1=@j1,j2=@j2,j3=@j3,j4=@j4,j5=@j5,j6=@j6,j7=@j7,j8=@j8,j9=@j9" +
+                                    " WHERE can_no=@can_no;";
+
+                    MySqlCommand cmd = new MySqlCommand(sql, con);
+
+                    cmd.Parameters.AddWithValue("can_no", can_no);
+                    cmd.Parameters.AddWithValue("j1", j1);
+                    cmd.Parameters.AddWithValue("j2", j2);
+                    cmd.Parameters.AddWithValue("j3", j3);
+                    cmd.Parameters.AddWithValue("j4", j4);
+                    cmd.Parameters.AddWithValue("j5", j5);
+                    cmd.Parameters.AddWithValue("j6", j6);
+                    cmd.Parameters.AddWithValue("j7", j7);
+                    cmd.Parameters.AddWithValue("j8", j8);
+                    cmd.Parameters.AddWithValue("j9", j9);
+                    cmd.Parameters.AddWithValue("total", total);
+
+                    cmd.ExecuteNonQuery();
+
+                    //MessageBox.Show("Recorde Updated!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("ERROR : " + ex.ToString(), "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
         #endregion
 
         #region Semi Finals Scores

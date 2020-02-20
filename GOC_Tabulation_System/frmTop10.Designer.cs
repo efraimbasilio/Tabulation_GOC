@@ -29,12 +29,14 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnSave = new System.Windows.Forms.Button();
             this.lblEvent = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlDataGrid = new System.Windows.Forms.Panel();
             this.dgvAllEvent = new System.Windows.Forms.DataGridView();
-            this.btnSave = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblJudgeNo = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.pnlDataGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllEvent)).BeginInit();
@@ -43,7 +45,8 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnSave);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.lblJudgeNo);
             this.panel1.Controls.Add(this.lblEvent);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -51,6 +54,20 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1366, 94);
             this.panel1.TabIndex = 8;
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Roboto Cn", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(162, 726);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(427, 37);
+            this.btnSave.TabIndex = 10;
+            this.btnSave.Text = "Submit Score";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // lblEvent
             // 
@@ -102,28 +119,35 @@
             this.dgvAllEvent.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvAllEvent_EditingControlShowing);
             this.dgvAllEvent.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvAllEvent_KeyDown);
             // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Roboto Cn", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(1251, 27);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(100, 37);
-            this.btnSave.TabIndex = 10;
-            this.btnSave.Text = "Submit Score";
-            this.btnSave.UseVisualStyleBackColor = false;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::GOC_Tabulation_System.Properties.Resources._18;
-            this.pictureBox1.Location = new System.Drawing.Point(148, 95);
+            this.pictureBox1.Location = new System.Drawing.Point(148, 89);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(452, 632);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
+            // 
+            // lblJudgeNo
+            // 
+            this.lblJudgeNo.AutoSize = true;
+            this.lblJudgeNo.Font = new System.Drawing.Font("Roboto Cn", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJudgeNo.Location = new System.Drawing.Point(687, 67);
+            this.lblJudgeNo.Name = "lblJudgeNo";
+            this.lblJudgeNo.Size = new System.Drawing.Size(23, 25);
+            this.lblJudgeNo.TabIndex = 3;
+            this.lblJudgeNo.Text = "3";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Roboto Cn", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(595, 67);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(95, 25);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Judge No:";
             // 
             // frmTop10
             // 
@@ -131,6 +155,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1366, 768);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlDataGrid);
             this.Controls.Add(this.pictureBox1);
@@ -157,5 +182,7 @@
         private System.Windows.Forms.DataGridView dgvAllEvent;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblJudgeNo;
     }
 }

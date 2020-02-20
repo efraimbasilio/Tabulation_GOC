@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -317,11 +318,11 @@ namespace GOC_Tabulation_System
                 //dgvAllEvent.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
 
                 //populate with default data
-               
-                //for (int i = 1; i <= totalCandidates; i++)
-                //{
-                //    dgvAllEvent.Rows.Add(i, "00.00");
-                //}
+
+                for (int i = 1; i <= totalCandidates; i++)
+                {
+                    dgvAllEvent.Rows.Add(i, "00.00");
+                }
 
                 //Limit Input in datagrid
                 ((DataGridViewTextBoxColumn)dgvAllEvent.Columns[1]).MaxInputLength = 5;
@@ -389,7 +390,62 @@ namespace GOC_Tabulation_System
                 util.ScoreValidator_LONG_GOWN_ONLY(dgvAllEvent, _minScore, _maxScore);
             }
 
+        }
 
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            string message = "Please double check the scores before submitting , Submit score now ?";
+            string title = "Tabulation System";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Information);
+            if (result == DialogResult.Yes)
+            {
+                LongGownOnly score = new LongGownOnly();
+                for (int i = 0; i < dgvAllEvent.Rows.Count; i++)
+                {
+
+                    score.Judge =  lblJudgeNo.Text;//Judge No
+                    score.Can_no = dgvAllEvent.Rows[i].Cells[0].Value.ToString();//Candidate Number    [0]
+                    score.Score = dgvAllEvent.Rows[i].Cells[1].Value.ToString();//Score per candidate [1]
+                    score.Save();
+                    //UPDATE `long_gown` SET `j1`= 10 WHERE `can_no`= 1;
+                    //try
+                    //{
+                    //    //prepare connection string 
+                    //    using (MySqlConnection con = new MySqlConnection(GOC_Tabulation_System.Config.GetConnectionString()))
+                    //    {
+
+                    //        //try to open connection
+                    //        con.Open();
+
+                    //        //string sql = "UPDATE long_gown SET  j1=@score WHERE can_no=@can_no;";
+                    //        string sql = string.Concat("UPDATE long_gown SET " + "j" + lblJudgeNo.Text + " = @score WHERE can_no=@can_no;");
+                            
+
+                    //        MySqlCommand cmd = new MySqlCommand(sql, con);
+
+                    //        cmd.Parameters.AddWithValue("can_no", dgvAllEvent.Rows[i].Cells[0].Value.ToString());
+                    //        cmd.Parameters.AddWithValue("score", dgvAllEvent.Rows[i].Cells[1].Value.ToString());
+                    //        cmd.Parameters.AddWithValue("judge", lblJudgeNo.Text);
+
+
+                    //        cmd.ExecuteNonQuery();
+
+                    //        //MessageBox.Show("Recorde Updated!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //    }
+                    //}
+                    //catch (MySqlException ex)
+                    //{
+                    //    MessageBox.Show("ERROR : " + ex.ToString(), "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    //}
+
+
+
+                }
+                MessageBox.Show("Record Submitted!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+           
         }
     }
 }

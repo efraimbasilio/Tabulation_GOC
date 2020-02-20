@@ -250,7 +250,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 257);
+            this.label5.Location = new System.Drawing.Point(12, 233);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(63, 15);
             this.label5.TabIndex = 24;
@@ -262,7 +262,7 @@
             this.frmLock.Items.AddRange(new object[] {
             "Active",
             "Inactive"});
-            this.frmLock.Location = new System.Drawing.Point(13, 275);
+            this.frmLock.Location = new System.Drawing.Point(13, 251);
             this.frmLock.Name = "frmLock";
             this.frmLock.Size = new System.Drawing.Size(69, 23);
             this.frmLock.TabIndex = 23;
