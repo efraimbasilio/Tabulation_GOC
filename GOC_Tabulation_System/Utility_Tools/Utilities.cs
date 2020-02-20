@@ -26,15 +26,15 @@ namespace GOC_Tabulation_System
 
         }
 
-        public void InputToDouble(DataGridView dgv)
+        public void ScoreValidator_BEAUTY(DataGridView dgv, int minimum_score ,int maximum_score)
         {
             foreach (DataGridViewRow Myrow in dgv.Rows)
-            {   //Here 2 cell is target value and 1 cell is Volume
-                if (Convert.ToDouble(Myrow.Cells[1].Value) < 15 )// Or your condition 
+            {   //Here 2 cell is target value and 1 cell is Volume                
+                if (Convert.ToDouble(Myrow.Cells[1].Value) < minimum_score)// Or your condition 
                 {
                     Myrow.Cells[1].Value = "0.00";
                 }
-                else if (Convert.ToDouble(Myrow.Cells[1].Value) > 30)                               
+                else if (Convert.ToDouble(Myrow.Cells[1].Value) > maximum_score)                               
                 {
                     Myrow.Cells[1].Value = "0.00";
                 }
@@ -42,6 +42,26 @@ namespace GOC_Tabulation_System
                 {
                     double a = Convert.ToDouble(Myrow.Cells[1].Value.ToString());
                     Myrow.Cells[1].Value = a.ToString("n");
+                }
+            }
+        }
+
+        public void ScoreValidator_WIT_INT(DataGridView dgv, int minimum_score, int maximum_score)
+        {
+            foreach (DataGridViewRow Myrow in dgv.Rows)
+            {   //Here 2 cell is target value and 1 cell is Volume                
+                if (Convert.ToDouble(Myrow.Cells[2].Value) < minimum_score)// Or your condition 
+                {
+                    Myrow.Cells[2].Value = "0.00";
+                }
+                else if (Convert.ToDouble(Myrow.Cells[2].Value) > maximum_score)
+                {
+                    Myrow.Cells[2].Value = "0.00";
+                }
+                else
+                {
+                    double a = Convert.ToDouble(Myrow.Cells[2].Value.ToString());
+                    Myrow.Cells[2].Value = a.ToString("n");
                 }
             }
         }

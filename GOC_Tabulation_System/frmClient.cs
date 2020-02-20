@@ -141,7 +141,7 @@ namespace GOC_Tabulation_System
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             util.NoBlankScore(dataGridView1);
-            util.InputToDouble(dataGridView1);
+            //util.MaxAndMinScoreValidator(dataGridView1,15,30);
         }
 
         private void dataGridView1_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
