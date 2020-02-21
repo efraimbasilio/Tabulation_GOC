@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BeautyAndLongGown.cs" />
     <Compile Include="Model\Final.cs" />
     <Compile Include="Model\LongGownOnly.cs" />
     <Compile Include="Model\Candidates.cs" />
