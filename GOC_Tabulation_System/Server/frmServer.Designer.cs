@@ -208,6 +208,7 @@
             // 
             // cmbEvents
             // 
+            this.cmbEvents.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEvents.FormattingEnabled = true;
             this.cmbEvents.Items.AddRange(new object[] {
             "Long Gown Only",
@@ -258,6 +259,7 @@
             // 
             // frmLock
             // 
+            this.frmLock.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.frmLock.FormattingEnabled = true;
             this.frmLock.Items.AddRange(new object[] {
             "Active",

@@ -52,8 +52,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Final.cs" />
-    <Compile Include="LongGownOnly.cs" />
+    <Compile Include="Model\Final.cs" />
+    <Compile Include="Model\LongGownOnly.cs" />
     <Compile Include="Model\Candidates.cs" />
     <Compile Include="Connection\Config.cs" />
     <Compile Include="Report\CrystalReport1.cs">
@@ -63,23 +63,23 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Connection\CystalReportConnection.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Utility_Tools\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="Utility_Tools\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="SemiFinal.cs" />
+    <Compile Include="Model\SemiFinal.cs" />
     <Compile Include="Server\frmAddPicturecs.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Server\frmAddPicturecs.Designer.cs">
       <DependentUpon>frmAddPicturecs.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmClient.cs">
+    <Compile Include="Utility_Tools\frmClient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmClient.Designer.cs">
+    <Compile Include="Utility_Tools\frmClient.Designer.cs">
       <DependentUpon>frmClient.cs</DependentUpon>
     </Compile>
     <Compile Include="Server\frmServer.cs">
@@ -109,13 +109,13 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport1.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="Utility_Tools\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Server\frmAddPicturecs.resx">
       <DependentUpon>frmAddPicturecs.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmClient.resx">
+    <EmbeddedResource Include="Utility_Tools\frmClient.resx">
       <DependentUpon>frmClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Server\frmServer.resx">

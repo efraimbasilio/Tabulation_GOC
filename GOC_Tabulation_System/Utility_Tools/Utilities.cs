@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,8 @@ namespace GOC_Tabulation_System
 {
     class Utilities
     {
+
+        public bool toSave;
         public void LoadDataTable(DataGridView dgv , string tableName)
         {
             try
@@ -34,10 +37,7 @@ namespace GOC_Tabulation_System
             {
                 MessageBox.Show("ERROR : " + ex.Message.ToString(), "GOCINFOSYS", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
-
-
 
         public void NoBlankScore(DataGridView dgv)
         {
@@ -49,12 +49,33 @@ namespace GOC_Tabulation_System
                     {
                         //MessageBox.Show("No Empty grades");
                         rw.Cells[i].Value = "00.00";
+                        rw.Cells[i].Selected = true;
+
                         break;
                     }
                 }
             }
-
         }
+        
+        public void NoZeroScore(DataGridView dgv)
+        {
+            
+            foreach (DataGridViewRow rw in dgv.Rows)
+            {
+                for (int i = 0; i < rw.Cells.Count; i++)
+                {
+                    if (rw.Cells[i].Value.Equals("00.00"))
+                    {                        
+                        rw.Cells[i].Selected = true;
+                        
+                        return;
+                    }
+                   // toSave = false;
+                }
+            }
+            toSave = true;
+        }
+
 
         public void ScoreValidator_BEAUTY(DataGridView dgv, int minimum_score ,int maximum_score)
         {
@@ -63,15 +84,17 @@ namespace GOC_Tabulation_System
                 if (Convert.ToDouble(Myrow.Cells[1].Value) < minimum_score)// Or your condition 
                 {
                     Myrow.Cells[1].Value = "00.00";
+                    
                 }
                 else if (Convert.ToDouble(Myrow.Cells[1].Value) > maximum_score)                               
                 {
                     Myrow.Cells[1].Value = "00.00";
+                    
                 }
                 else
                 {
                     double a = Convert.ToDouble(Myrow.Cells[1].Value.ToString());
-                    Myrow.Cells[1].Value = a.ToString("n");
+                    Myrow.Cells[1].Value = a.ToString("n");                    
                 }
             }
         }
@@ -82,16 +105,16 @@ namespace GOC_Tabulation_System
             {   //Here 2 cell is target value and 1 cell is Volume                
                 if (Convert.ToDouble(Myrow.Cells[2].Value) < minimum_score)// Or your condition 
                 {
-                    Myrow.Cells[2].Value = "00.00";
+                    Myrow.Cells[2].Value = "00.00";                   
                 }
                 else if (Convert.ToDouble(Myrow.Cells[2].Value) > maximum_score)
                 {
-                    Myrow.Cells[2].Value = "00.00";
+                    Myrow.Cells[2].Value = "00.00";                    
                 }
                 else
                 {
                     double a = Convert.ToDouble(Myrow.Cells[2].Value.ToString());
-                    Myrow.Cells[2].Value = a.ToString("n");
+                    Myrow.Cells[2].Value = a.ToString("n");                   
                 }
             }
         }
@@ -102,16 +125,17 @@ namespace GOC_Tabulation_System
             {   //Here 2 cell is target value and 1 cell is Volume                
                 if (Convert.ToDouble(Myrow.Cells[1].Value) < minimum_score)// Or your condition 
                 {
-                    Myrow.Cells[1].Value = "00.00";
+                    Myrow.Cells[1].Value = "00.00";                   
                 }
                 else if (Convert.ToDouble(Myrow.Cells[1].Value) > maximum_score)
                 {
-                    Myrow.Cells[1].Value = "00.00";
+                    Myrow.Cells[1].Value = "00.00";                   
                 }
                 else
                 {
                     double a = Convert.ToDouble(Myrow.Cells[1].Value.ToString());
                     Myrow.Cells[1].Value = a.ToString("n");
+                   
                 }
             }
         }

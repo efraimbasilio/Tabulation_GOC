@@ -16,6 +16,7 @@ namespace GOC_Tabulation_System
         public string EventName; //Current Event Selected in the Server
         public int topFinalist;
         public int totalCandidates;
+        public bool toSave;
 
         //public int _minScore_BEAUTY = 30, _maxScore_BEAUTY = 60, _minScore_WIT_INT = 20, _maxScore_WIT_INT = 40;
 
@@ -348,6 +349,7 @@ namespace GOC_Tabulation_System
        
         private void dgvAllEvent_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+           
             //STATIC VALUES
             if (EventName.Equals("Semi Final - Q and A"))
             {
@@ -384,7 +386,10 @@ namespace GOC_Tabulation_System
             }
 
             else if (EventName.Equals("Long Gown Only"))
-            { 
+            {
+
+                util.NoBlankScore(dgvAllEvent);
+               
                 //STATIC VALUES
                 int _minScore = 13, _maxScore= 25;
                 util.ScoreValidator_LONG_GOWN_ONLY(dgvAllEvent, _minScore, _maxScore);
@@ -392,47 +397,57 @@ namespace GOC_Tabulation_System
 
         }
 
+        
         private void btnSave_Click(object sender, EventArgs e)
         {
-            string message = "Please double check the scores before submitting , Submit score now ?";
-            string title = "Tabulation System";
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Information);
-            if (result == DialogResult.Yes)
+            util.NoZeroScore(dgvAllEvent);
+
+            if (util.toSave == true)
             {
-                if (EventName.Equals("Long Gown Only"))
+                string message = "Please double check the scores before submitting , Submit score now ?";
+                string title = "Tabulation System";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Information);
+                if (result == DialogResult.Yes)
                 {
-                    #region LongGownOnly
-                    LongGownOnly score = new LongGownOnly();
-                    for (int i = 0; i < dgvAllEvent.Rows.Count; i++)
+                    if (EventName.Equals("Long Gown Only"))
                     {
-                        score.Judge = lblJudgeNo.Text;//Judge No
-                        score.Can_no = dgvAllEvent.Rows[i].Cells[0].Value.ToString();//Candidate Number    [0]
-                        score.Score = dgvAllEvent.Rows[i].Cells[1].Value.ToString();//Score per candidate [1]
-                        score.Save();
+                        #region LongGownOnly
+                        LongGownOnly score = new LongGownOnly();
+                        for (int i = 0; i < dgvAllEvent.Rows.Count; i++)
+                        {
+                            score.Judge = lblJudgeNo.Text;//Judge No
+                            score.Can_no = dgvAllEvent.Rows[i].Cells[0].Value.ToString();//Candidate Number    [0]
+                            score.Score = dgvAllEvent.Rows[i].Cells[1].Value.ToString();//Score per candidate [1]
+                            score.Save();
+                        }
+                        MessageBox.Show("Record Submitted!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        #endregion
                     }
-                    MessageBox.Show("Record Submitted!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    #endregion
-                }
-                else if (EventName.Equals("Semi Final - Q and A"))
-                {
-                    #region SemiFinal
-                    SemiFinal score = new SemiFinal();
-                    for (int i = 0; i < dgvAllEvent.Rows.Count; i++)
+                    else if (EventName.Equals("Semi Final - Q and A"))
                     {
-                        score.Judge = lblJudgeNo.Text;//Judge No
-                        score.Can_no = dgvAllEvent.Rows[i].Cells[0].Value.ToString();//Candidate Number    [0]
-                        score.Score_beauty = dgvAllEvent.Rows[i].Cells[1].Value.ToString();//Score per candidate [1
-                        score.Score_wit = dgvAllEvent.Rows[i].Cells[2].Value.ToString();//Score per candidate [1]
+                        #region SemiFinal
+                        SemiFinal score = new SemiFinal();
+                        for (int i = 0; i < dgvAllEvent.Rows.Count; i++)
+                        {
+                            score.Judge = lblJudgeNo.Text;//Judge No
+                            score.Can_no = dgvAllEvent.Rows[i].Cells[0].Value.ToString();//Candidate Number    [0]
+                            score.Score_beauty = dgvAllEvent.Rows[i].Cells[1].Value.ToString();//Score per candidate [1
+                            score.Score_wit = dgvAllEvent.Rows[i].Cells[2].Value.ToString();//Score per candidate [1]
 
-                        score.Save();
+                            score.Save();
+                        }
+                        MessageBox.Show("Record Submitted!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        #endregion
                     }
-                    MessageBox.Show("Record Submitted!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    #endregion
-                }
 
+                }
             }
-           
+            else
+            {
+                return;
+            }
+                     
         }
     }
 }

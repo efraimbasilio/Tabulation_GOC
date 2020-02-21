@@ -379,7 +379,7 @@ namespace GOC_Tabulation_System
 
         private void frmServer_Load(object sender, EventArgs e)
         {
-            //LoadJudgeAndCandidates();
+            LoadJudgeAndCandidates();
             //Datagrid_LongGownOnly();
             DatagridDesignTOP10();
         }
