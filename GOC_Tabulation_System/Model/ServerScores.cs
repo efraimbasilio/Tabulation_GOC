@@ -151,8 +151,8 @@ namespace GOC_Tabulation_System
                     //try to open connection
                     con.Open();
 
-                    string sql = "UPDATE long_gown SET can_no=@can_no, j1=@j1,j2=@j2,j3=@j3,j4=@j4,j5=@j5,j6=@j6,j7=@j7,j8=@j8,j9=@j9" +
-                                    " WHERE can_no=@can_no;";
+                    string sql = "UPDATE long_gown SET j1=@j1,j2=@j2,j3=@j3,j4=@j4,j5=@j5,j6=@j6,j7=@j7,j8=@j8,j9=@j9,total=@total " +
+                                    "WHERE can_no= @can_no;";
 
                     MySqlCommand cmd = new MySqlCommand(sql, con);
                     
@@ -170,7 +170,7 @@ namespace GOC_Tabulation_System
 
                     cmd.ExecuteNonQuery();
 
-                    //MessageBox.Show("Recorde Updated!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                   //MessageBox.Show("Recorde Updated!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (MySqlException ex)

@@ -30,8 +30,6 @@
         {
             this.dgvPreElim = new System.Windows.Forms.DataGridView();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.dgvSemiFinal = new System.Windows.Forms.DataGridView();
@@ -53,9 +51,9 @@
             this.button2 = new System.Windows.Forms.Button();
             this.lblNoSemiFinalist = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cmbSetEvent = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPreElim)).BeginInit();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSemiFinal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTOP10)).BeginInit();
             this.SuspendLayout();
@@ -64,10 +62,10 @@
             // 
             this.dgvPreElim.AllowUserToAddRows = false;
             this.dgvPreElim.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPreElim.Location = new System.Drawing.Point(605, 64);
+            this.dgvPreElim.Location = new System.Drawing.Point(605, 37);
             this.dgvPreElim.Name = "dgvPreElim";
             this.dgvPreElim.RowHeadersVisible = false;
-            this.dgvPreElim.Size = new System.Drawing.Size(749, 464);
+            this.dgvPreElim.Size = new System.Drawing.Size(749, 442);
             this.dgvPreElim.TabIndex = 0;
             this.dgvPreElim.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPreElim_CellEndEdit);
             this.dgvPreElim.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPreElim_CellEnter);
@@ -77,7 +75,7 @@
             // 
             this.linkLabel2.AutoSize = true;
             this.linkLabel2.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel2.Location = new System.Drawing.Point(602, 44);
+            this.linkLabel2.Location = new System.Drawing.Point(5, 351);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(156, 15);
             this.linkLabel2.TabIndex = 7;
@@ -85,32 +83,11 @@
             this.linkLabel2.Text = "[LONG GOWN COMPETITION]";
             this.linkLabel2.VisitedLinkColor = System.Drawing.Color.Black;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1366, 38);
-            this.panel2.TabIndex = 5;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::GOC_Tabulation_System.Properties.Resources.close;
-            this.pictureBox1.Location = new System.Drawing.Point(1338, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(16, 16);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 5);
+            this.label1.Location = new System.Drawing.Point(8, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(159, 26);
             this.label1.TabIndex = 1;
@@ -118,7 +95,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(17, 44);
+            this.button1.Location = new System.Drawing.Point(12, 38);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 17;
@@ -130,16 +107,16 @@
             // 
             this.dgvSemiFinal.AllowUserToAddRows = false;
             this.dgvSemiFinal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSemiFinal.Location = new System.Drawing.Point(181, 64);
+            this.dgvSemiFinal.Location = new System.Drawing.Point(181, 37);
             this.dgvSemiFinal.Name = "dgvSemiFinal";
             this.dgvSemiFinal.RowHeadersVisible = false;
-            this.dgvSemiFinal.Size = new System.Drawing.Size(418, 464);
+            this.dgvSemiFinal.Size = new System.Drawing.Size(418, 442);
             this.dgvSemiFinal.TabIndex = 9;
             this.dgvSemiFinal.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSemiFinal_CellEndEdit);
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(764, 39);
+            this.btnSubmit.Location = new System.Drawing.Point(605, 12);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
             this.btnSubmit.TabIndex = 10;
@@ -149,7 +126,7 @@
             // 
             // btnPreview
             // 
-            this.btnPreview.Location = new System.Drawing.Point(924, 39);
+            this.btnPreview.Location = new System.Drawing.Point(686, 12);
             this.btnPreview.Name = "btnPreview";
             this.btnPreview.Size = new System.Drawing.Size(75, 23);
             this.btnPreview.TabIndex = 11;
@@ -158,7 +135,7 @@
             // 
             // btnPrintSemi
             // 
-            this.btnPrintSemi.Location = new System.Drawing.Point(260, 40);
+            this.btnPrintSemi.Location = new System.Drawing.Point(260, 13);
             this.btnPrintSemi.Name = "btnPrintSemi";
             this.btnPrintSemi.Size = new System.Drawing.Size(75, 23);
             this.btnPrintSemi.TabIndex = 13;
@@ -167,7 +144,7 @@
             // 
             // btnSubmitSemi
             // 
-            this.btnSubmitSemi.Location = new System.Drawing.Point(181, 40);
+            this.btnSubmitSemi.Location = new System.Drawing.Point(181, 13);
             this.btnSubmitSemi.Name = "btnSubmitSemi";
             this.btnSubmitSemi.Size = new System.Drawing.Size(75, 23);
             this.btnSubmitSemi.TabIndex = 12;
@@ -179,10 +156,10 @@
             // 
             this.dgvTOP10.AllowUserToAddRows = false;
             this.dgvTOP10.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTOP10.Location = new System.Drawing.Point(181, 534);
+            this.dgvTOP10.Location = new System.Drawing.Point(181, 485);
             this.dgvTOP10.Name = "dgvTOP10";
             this.dgvTOP10.RowHeadersVisible = false;
-            this.dgvTOP10.Size = new System.Drawing.Size(1173, 191);
+            this.dgvTOP10.Size = new System.Drawing.Size(1173, 242);
             this.dgvTOP10.TabIndex = 14;
             this.dgvTOP10.SortCompare += new System.Windows.Forms.DataGridViewSortCompareEventHandler(this.dgvTOP10_SortCompare);
             // 
@@ -215,7 +192,7 @@
             "Long Gown with Beauty Face",
             "Semi Final - Q and A",
             "Final - Q and A"});
-            this.cmbEvents.Location = new System.Drawing.Point(15, 113);
+            this.cmbEvents.Location = new System.Drawing.Point(13, 173);
             this.cmbEvents.Name = "cmbEvents";
             this.cmbEvents.Size = new System.Drawing.Size(156, 23);
             this.cmbEvents.TabIndex = 17;
@@ -224,16 +201,16 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 95);
+            this.label2.Location = new System.Drawing.Point(14, 155);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 15);
+            this.label2.Size = new System.Drawing.Size(78, 15);
             this.label2.TabIndex = 18;
-            this.label2.Text = "Major Event:";
+            this.label2.Text = "Browse Event:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 143);
+            this.label3.Location = new System.Drawing.Point(12, 203);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 15);
             this.label3.TabIndex = 20;
@@ -242,7 +219,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 168);
+            this.label4.Location = new System.Drawing.Point(10, 228);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(122, 15);
             this.label4.TabIndex = 22;
@@ -251,7 +228,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 233);
+            this.label5.Location = new System.Drawing.Point(10, 293);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(63, 15);
             this.label5.TabIndex = 24;
@@ -264,7 +241,7 @@
             this.frmLock.Items.AddRange(new object[] {
             "Active",
             "Inactive"});
-            this.frmLock.Location = new System.Drawing.Point(13, 251);
+            this.frmLock.Location = new System.Drawing.Point(11, 311);
             this.frmLock.Name = "frmLock";
             this.frmLock.Size = new System.Drawing.Size(69, 23);
             this.frmLock.TabIndex = 23;
@@ -272,7 +249,7 @@
             // lblJudges
             // 
             this.lblJudges.AutoSize = true;
-            this.lblJudges.Location = new System.Drawing.Point(149, 143);
+            this.lblJudges.Location = new System.Drawing.Point(147, 203);
             this.lblJudges.Name = "lblJudges";
             this.lblJudges.Size = new System.Drawing.Size(14, 15);
             this.lblJudges.TabIndex = 25;
@@ -281,7 +258,7 @@
             // lblCandidates
             // 
             this.lblCandidates.AutoSize = true;
-            this.lblCandidates.Location = new System.Drawing.Point(149, 168);
+            this.lblCandidates.Location = new System.Drawing.Point(147, 228);
             this.lblCandidates.Name = "lblCandidates";
             this.lblCandidates.Size = new System.Drawing.Size(14, 15);
             this.lblCandidates.TabIndex = 26;
@@ -289,7 +266,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(843, 39);
+            this.button2.Location = new System.Drawing.Point(1279, 8);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 27;
@@ -300,7 +277,7 @@
             // lblNoSemiFinalist
             // 
             this.lblNoSemiFinalist.AutoSize = true;
-            this.lblNoSemiFinalist.Location = new System.Drawing.Point(149, 195);
+            this.lblNoSemiFinalist.Location = new System.Drawing.Point(147, 255);
             this.lblNoSemiFinalist.Name = "lblNoSemiFinalist";
             this.lblNoSemiFinalist.Size = new System.Drawing.Size(14, 15);
             this.lblNoSemiFinalist.TabIndex = 29;
@@ -309,18 +286,44 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(11, 195);
+            this.label7.Location = new System.Drawing.Point(9, 255);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(132, 15);
             this.label7.TabIndex = 28;
             this.label7.Text = "Number of Semi Finalist:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(14, 86);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(58, 15);
+            this.label6.TabIndex = 31;
+            this.label6.Text = "Set Event:";
+            // 
+            // cmbSetEvent
+            // 
+            this.cmbSetEvent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSetEvent.FormattingEnabled = true;
+            this.cmbSetEvent.Items.AddRange(new object[] {
+            "Long Gown Only",
+            "Long Gown with Beauty Face",
+            "Semi Final - Q and A",
+            "Final - Q and A"});
+            this.cmbSetEvent.Location = new System.Drawing.Point(13, 104);
+            this.cmbSetEvent.Name = "cmbSetEvent";
+            this.cmbSetEvent.Size = new System.Drawing.Size(156, 23);
+            this.cmbSetEvent.TabIndex = 30;
             // 
             // frmServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1366, 768);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.cmbSetEvent);
             this.Controls.Add(this.lblNoSemiFinalist);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.lblCandidates);
@@ -341,7 +344,6 @@
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.dgvSemiFinal);
             this.Controls.Add(this.linkLabel2);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.dgvPreElim);
             this.Font = new System.Drawing.Font("Roboto Cn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -350,9 +352,6 @@
             this.Text = "frmServer";
             this.Load += new System.EventHandler(this.frmServer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPreElim)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSemiFinal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTOP10)).EndInit();
             this.ResumeLayout(false);
@@ -364,8 +363,6 @@
 
         private System.Windows.Forms.DataGridView dgvPreElim;
         private System.Windows.Forms.LinkLabel linkLabel2;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvSemiFinal;
         private System.Windows.Forms.Button btnSubmit;
@@ -387,5 +384,7 @@
         public System.Windows.Forms.ComboBox cmbEvents;
         private System.Windows.Forms.Label lblNoSemiFinalist;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        public System.Windows.Forms.ComboBox cmbSetEvent;
     }
 }
