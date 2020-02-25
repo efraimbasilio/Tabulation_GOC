@@ -247,7 +247,25 @@ namespace GOC_Tabulation_System
            
             //this.dgvPreElim.Sort(this.dgvPreElim.Columns["TOTAL"], ListSortDirection.Descending); // To Sort the computed Score
         }
-       
+
+        private void Compute_PreElim()
+        {
+            double sum = 00.00;
+            for (int i = 0; i < dgvSemiFinal.RowCount; i++)
+            {
+                //clear
+                dgvSemiFinal.Rows[i].Cells[7].Value = 00.00;
+                sum = 00.00;
+
+                for (int y = 2; y <= 7; y++)
+                {
+                    sum = sum + Convert.ToDouble(dgvSemiFinal.Rows[i].Cells[y].Value);
+
+                }
+                //To show the Computed Score in the last Column               
+                dgvSemiFinal.Rows[i].Cells[7].Value = sum.ToString("n");                              
+            }
+        }
         #endregion
 
         #region ELIMINATION DATAGRID(TOP 10 or TOP 9)
@@ -422,7 +440,9 @@ namespace GOC_Tabulation_System
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             Compute_LongGownOnly();
+
             ServerScores score = new ServerScores();
+            PreElimination elim = new PreElimination();
             for (int i = 0; i < dgvPreElim.Rows.Count; i++)
             {
                 score.Can_no = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[1].Value.ToString());
@@ -437,22 +457,53 @@ namespace GOC_Tabulation_System
                 score.J9 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[10].Value.ToString());
                 score.Total = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[11].Value.ToString());
 
-                //MessageBox.Show(dgvPreElim.Rows[i].Cells[11].Value.ToString());
+                //MessageBox.Show("NO # " + dgvPreElim.Rows[i].Cells[1].Value.ToString() + " SCORE: "+ dgvPreElim.Rows[i].Cells[11].Value.ToString());
 
                 score.Update();
+
+                elim.Can_no = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[1].Value.ToString());
+                elim.Gown = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[11].Value.ToString());
+
+                elim.Update_Long_Gown();
                // MessageBox.Show("AA", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            MessageBox.Show("Record Submitted!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }    
+
+            //Load Elim
+            util.LoadDataTable(dgvSemiFinal, "pre_elim");
+            Desgin_Elimination();
+
+            btnSubmitSemi.PerformClick();
+        } 
+           
 
         private void btnSubmitSemi_Click(object sender, EventArgs e)
         {
-            
+            //Compute Elim and Load Record
+            PreElimination score = new PreElimination();
+            Compute_PreElim(); 
+                                   
+            for (int i = 0; i < dgvSemiFinal.Rows.Count; i++)
+            {               
+                score.Can_no = string.Format("{0:0.00}", dgvSemiFinal.Rows[i].Cells[1].Value.ToString());
+                score.Beauty_face_body = string.Format("{0:0.00}", dgvSemiFinal.Rows[i].Cells[2].Value.ToString());
+                score.Talent = string.Format("{0:0.00}", dgvSemiFinal.Rows[i].Cells[3].Value.ToString());
+                score.Swimsuit = string.Format("{0:0.00}", dgvSemiFinal.Rows[i].Cells[4].Value.ToString());
+                score.Gown = string.Format("{0:0.00}", dgvSemiFinal.Rows[i].Cells[5].Value.ToString());
+                score.Overall_impact = string.Format("{0:0.00}", dgvSemiFinal.Rows[i].Cells[6].Value.ToString());
+                score.Total = string.Format("{0:0.00}", dgvSemiFinal.Rows[i].Cells[7].Value.ToString());
+
+                score.Update();               
+            }
+
+            util.LoadDataTable(dgvSemiFinal, "pre_elim");
+            Desgin_Elimination();
         }
 
         private void dgvSemiFinal_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            
+            util.NoBlankScore(dgvSemiFinal);
+            util.AllScore_To_Decimal(dgvSemiFinal,7,2);
+
         }
 
         private void btnSubmitTOP_Click(object sender, EventArgs e)
@@ -542,6 +593,7 @@ namespace GOC_Tabulation_System
         private void dgvPreElim_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             util.NoBlankScore(dgvPreElim);
+            util.AllScore_To_Decimal(dgvPreElim, 11, 2);
         }
 
 

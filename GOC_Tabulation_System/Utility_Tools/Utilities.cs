@@ -140,5 +140,28 @@ namespace GOC_Tabulation_System
             }
         }
 
+        public void Score_To_Decimal(DataGridView dgv)
+        {
+            foreach (DataGridViewRow Myrow in dgv.Rows)
+            {   //Here 2 cell is target value and 1 cell is Volume                
+                for (int i = 2; i < 7; i++)
+                {
+                    double a = Convert.ToDouble(Myrow.Cells[i].Value.ToString());
+                    Myrow.Cells[i].Value = a.ToString("n");
+                }                                   
+            }
+        }
+
+        public void AllScore_To_Decimal(DataGridView dgv, int no_of_column, int start_column)
+        {
+            foreach (DataGridViewRow Myrow in dgv.Rows)
+            {   //Here 2 cell is target value and 1 cell is Volume                
+                for (int i = 2; i < no_of_column; i++)
+                {
+                    double a = Convert.ToDouble(Myrow.Cells[i].Value.ToString());
+                    Myrow.Cells[i].Value = a.ToString("n");
+                }
+            }
+        }
     }
 }

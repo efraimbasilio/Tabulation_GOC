@@ -80,7 +80,7 @@ namespace GOC_Tabulation_System
                     //try to open connection
                     con.Open();
 
-                    string sql = "UPDATE pre_elim SET beauty_face_body=@beauty_face_body,talent=@talent,swimsuit=@swimsuit,gown=@gown,overall_impact=@overall_impact,total=@total " +
+                    string sql = "UPDATE pre_elim SET beauty_face_body=@beauty_face_body,talent=@talent,swimsuit=@swimsuit,gown=@gown,overall_impact=@overall_impact ,total=@total " +
                                     "WHERE can_no= @can_no;";
 
                     MySqlCommand cmd = new MySqlCommand(sql, con);
@@ -95,7 +95,7 @@ namespace GOC_Tabulation_System
                  
                     cmd.ExecuteNonQuery();                    
                 }
-                MessageBox.Show("Recorde Updated!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show("Recorde Updated!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (MySqlException ex)
             {
@@ -103,5 +103,36 @@ namespace GOC_Tabulation_System
 
             }
         }
+
+        public void Update_Long_Gown()
+        {
+            try
+            {
+                //prepare connection string 
+                using (MySqlConnection con = new MySqlConnection(GOC_Tabulation_System.Config.GetConnectionString()))
+                {
+
+                    //try to open connection
+                    con.Open();
+
+                    string sql = "UPDATE pre_elim SET gown=@gown " +
+                                    "WHERE can_no= @can_no;";
+
+                    MySqlCommand cmd = new MySqlCommand(sql, con);
+
+                    cmd.Parameters.AddWithValue("can_no", can_no);                    
+                    cmd.Parameters.AddWithValue("gown", gown);                                      
+                    cmd.ExecuteNonQuery();
+                }
+                
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("ERROR : " + ex.ToString(), "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
+
     }
 }
