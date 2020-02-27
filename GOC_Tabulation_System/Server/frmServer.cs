@@ -635,6 +635,20 @@ namespace GOC_Tabulation_System
             }
 
         }
+
+        private void cmbSetEvent_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Event theEvent = new Event();            
+            theEvent.EventName = cmbSetEvent.Text;
+            theEvent.Update();
+        }
+
+        private void frmLock_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FormStatus frm = new FormStatus();
+            frm.Form_Status = frmLock.Text;
+            frm.Update();
+        }
     }
 }
 

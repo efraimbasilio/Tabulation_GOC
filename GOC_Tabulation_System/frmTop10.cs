@@ -17,6 +17,7 @@ namespace GOC_Tabulation_System
         public int topFinalist;
         public int totalCandidates;
         public bool toSave;
+        public string LockStatus;
 
         //public int _minScore_BEAUTY = 30, _maxScore_BEAUTY = 60, _minScore_WIT_INT = 20, _maxScore_WIT_INT = 40;
 
@@ -485,6 +486,36 @@ namespace GOC_Tabulation_System
                 return;
             }
                      
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            FormStatus frm = new FormStatus();
+            List<FormStatus> lists = new List<FormStatus>();
+            lists.Clear();
+            lists = frm.Load();
+            foreach (var item in lists)
+            {
+                LockStatus = item.Form_Status;
+            }
+
+            LockMe();
+        }
+       
+        private void LockMe()
+        {
+            if (LockStatus.Equals("Active"))
+            {
+                frmSetting frm = new frmSetting();
+                frm.ShowDialog();
+                   
+            }
+            else
+            {
+                frmSetting frm = new frmSetting();
+                frm.Close();
+            }
+            
         }
     }
 }

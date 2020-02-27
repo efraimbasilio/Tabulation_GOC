@@ -28,15 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblJudgeNo = new System.Windows.Forms.Label();
             this.lblEvent = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
             this.pnlDataGrid = new System.Windows.Forms.Panel();
             this.dgvAllEvent = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblJudgeNo = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.pnlDataGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllEvent)).BeginInit();
@@ -55,19 +57,25 @@
             this.panel1.Size = new System.Drawing.Size(1366, 94);
             this.panel1.TabIndex = 8;
             // 
-            // btnSave
+            // label2
             // 
-            this.btnSave.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Roboto Cn", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(162, 726);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(427, 37);
-            this.btnSave.TabIndex = 10;
-            this.btnSave.Text = "Submit Score";
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Roboto Cn", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(595, 67);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(95, 25);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Judge No:";
+            // 
+            // lblJudgeNo
+            // 
+            this.lblJudgeNo.AutoSize = true;
+            this.lblJudgeNo.Font = new System.Drawing.Font("Roboto Cn", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJudgeNo.Location = new System.Drawing.Point(687, 67);
+            this.lblJudgeNo.Name = "lblJudgeNo";
+            this.lblJudgeNo.Size = new System.Drawing.Size(23, 25);
+            this.lblJudgeNo.TabIndex = 3;
+            this.lblJudgeNo.Text = "1";
             // 
             // lblEvent
             // 
@@ -88,6 +96,20 @@
             this.label1.Size = new System.Drawing.Size(503, 87);
             this.label1.TabIndex = 1;
             this.label1.Text = "Ms. Paniqui 2020";
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Roboto Cn", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(162, 726);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(427, 37);
+            this.btnSave.TabIndex = 10;
+            this.btnSave.Text = "Submit Score";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // pnlDataGrid
             // 
@@ -129,25 +151,11 @@
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
-            // lblJudgeNo
+            // timer1
             // 
-            this.lblJudgeNo.AutoSize = true;
-            this.lblJudgeNo.Font = new System.Drawing.Font("Roboto Cn", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblJudgeNo.Location = new System.Drawing.Point(687, 67);
-            this.lblJudgeNo.Name = "lblJudgeNo";
-            this.lblJudgeNo.Size = new System.Drawing.Size(23, 25);
-            this.lblJudgeNo.TabIndex = 3;
-            this.lblJudgeNo.Text = "3";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Roboto Cn", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(595, 67);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 25);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Judge No:";
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // frmTop10
             // 
@@ -184,5 +192,6 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblJudgeNo;
+        private System.Windows.Forms.Timer timer1;
     }
 }

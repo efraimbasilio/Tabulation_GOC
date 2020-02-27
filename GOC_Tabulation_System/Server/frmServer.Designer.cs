@@ -245,6 +245,7 @@
             this.frmLock.Name = "frmLock";
             this.frmLock.Size = new System.Drawing.Size(69, 23);
             this.frmLock.TabIndex = 23;
+            this.frmLock.SelectedIndexChanged += new System.EventHandler(this.frmLock_SelectedIndexChanged);
             // 
             // lblJudges
             // 
@@ -314,6 +315,7 @@
             this.cmbSetEvent.Name = "cmbSetEvent";
             this.cmbSetEvent.Size = new System.Drawing.Size(156, 23);
             this.cmbSetEvent.TabIndex = 30;
+            this.cmbSetEvent.SelectedIndexChanged += new System.EventHandler(this.cmbSetEvent_SelectedIndexChanged);
             // 
             // frmServer
             // 

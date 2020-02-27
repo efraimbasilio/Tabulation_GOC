@@ -16,7 +16,7 @@ namespace GOC_Tabulation_System
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmServer());
+            Application.Run(new frmSetMe());
         }
     }
 }
