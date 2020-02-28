@@ -39,7 +39,7 @@ namespace GOC_Tabulation_System
             if (LockStatus.Equals("Inactive"))
             {
                 //timer1.Enabled = false;              
-                frmTop10 top = new frmTop10();
+                frmMainClient top = new frmMainClient();
                 top.TimeTurnOn();
                 this.Close();
             }

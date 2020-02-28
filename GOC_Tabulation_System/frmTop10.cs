@@ -397,6 +397,8 @@ namespace GOC_Tabulation_System
             Current_Event();
             No_of_Finalist();
 
+            Current_Event();
+            All_Event_DataGridView_Design();
             timer1.Enabled = true;                 
         }
 
@@ -541,6 +543,10 @@ namespace GOC_Tabulation_System
                         MessageBox.Show("Record Submitted!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         #endregion
                     }
+                    this.Dispose();
+                    frmMainClient main = new frmMainClient();
+                    main.ShowDialog();
+                    
                 }
             }
             else
@@ -585,8 +591,8 @@ namespace GOC_Tabulation_System
                 else
                 {
 
-                Current_Event();
-                All_Event_DataGridView_Design();
+                //Current_Event();
+                //All_Event_DataGridView_Design();
                 timer1.Enabled = false;
             }
             #endregion          

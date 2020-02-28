@@ -61,6 +61,12 @@
     <Compile Include="frmLocked.Designer.cs">
       <DependentUpon>frmLocked.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMainClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMainClient.Designer.cs">
+      <DependentUpon>frmMainClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSetMe.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +130,9 @@
     <Compile Include="Utility_Tools\Utilities.cs" />
     <EmbeddedResource Include="frmLocked.resx">
       <DependentUpon>frmLocked.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMainClient.resx">
+      <DependentUpon>frmMainClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSetMe.resx">
       <DependentUpon>frmSetMe.cs</DependentUpon>

@@ -22,17 +22,16 @@ namespace GOC_Tabulation_System
 
         private void button2_Click(object sender, EventArgs e)
         {           
-            frmTop10 frm = new frmTop10();          
-            frm.Judge = cmbJudge.Text;
-            frm.Show();          
+            frmMainClient frm = new frmMainClient();            
+            frm.Show();
+           
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-           
+        {           
             frmServer frm = new frmServer();          
-            frm.ShowDialog();
-            
+            frm.ShowDialog();            
         }
 
         private void cmbJudge_SelectedIndexChanged(object sender, EventArgs e)

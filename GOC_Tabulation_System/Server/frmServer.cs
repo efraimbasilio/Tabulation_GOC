@@ -612,12 +612,12 @@ namespace GOC_Tabulation_System
 
                 ////Show Form
                 //top.ShowDialog();
-               
-                //util.LoadDataTable(dgvPreElim, "long_gown");
-                //util.LoadDataTable(dgvSemiFinal, "pre_elim");
 
-                //Desgin_Elimination();
-                //Desgin_LongGownOnly(); 
+                util.LoadDataTable(dgvPreElim, "long_gown");
+                util.LoadDataTable(dgvSemiFinal, "pre_elim");
+
+                Desgin_Elimination();
+                Desgin_LongGownOnly();
 
             }
             else if(cmbEvents.Text.Equals("Long Gown with Beauty Face"))
