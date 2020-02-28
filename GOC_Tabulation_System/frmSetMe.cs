@@ -12,25 +12,38 @@ namespace GOC_Tabulation_System
 {
     public partial class frmSetMe : Form
     {
+        
+
         public frmSetMe()
         {
             InitializeComponent();
+            cmbJudge.Text = "1";
         }
 
         private void button2_Click(object sender, EventArgs e)
-        {
-           ;
-            frmTop10 frm = new frmTop10();
-            frm.ShowDialog();
-            
+        {           
+            frmTop10 frm = new frmTop10();          
+            frm.Judge = cmbJudge.Text;
+            frm.Show();          
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
            
-            frmServer frm = new frmServer();
+            frmServer frm = new frmServer();          
             frm.ShowDialog();
             
+        }
+
+        private void cmbJudge_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            frmSetting frm = new frmSetting();
+            frm.ShowDialog();
         }
     }
 }

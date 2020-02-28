@@ -141,6 +141,7 @@
             this.btnPrintSemi.TabIndex = 13;
             this.btnPrintSemi.Text = "Preview";
             this.btnPrintSemi.UseVisualStyleBackColor = true;
+            this.btnPrintSemi.Click += new System.EventHandler(this.btnPrintSemi_Click);
             // 
             // btnSubmitSemi
             // 

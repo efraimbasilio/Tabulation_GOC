@@ -14,10 +14,13 @@ namespace GOC_Tabulation_System
     {
         Judges j = new Judges();
         Candidates c = new Candidates();
+        frmTop10 top = new frmTop10();
 
         List<Judges> js = new List<Judges>();
         List<Candidates> cs = new List<Candidates>();
 
+        Event theEvent = new Event();
+       
         Utilities util = new Utilities();
 
         #region Functions
@@ -198,7 +201,6 @@ namespace GOC_Tabulation_System
             g9.Width = 50;
             total.Width = 50;
         }
-
 
         private void Submit_LongGownOnly()
         {
@@ -430,6 +432,7 @@ namespace GOC_Tabulation_System
 
             util.LoadDataTable(dgvSemiFinal, "pre_elim");
             Desgin_Elimination();
+            
         }
 
         private void frmServer_Load(object sender, EventArgs e)
@@ -475,7 +478,6 @@ namespace GOC_Tabulation_System
             btnSubmitSemi.PerformClick();
         } 
            
-
         private void btnSubmitSemi_Click(object sender, EventArgs e)
         {
             //Compute Elim and Load Record
@@ -534,6 +536,7 @@ namespace GOC_Tabulation_System
 
                 semi.Save_Dummy_Semi();
             }
+
             MessageBox.Show("Record Saved!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -596,44 +599,65 @@ namespace GOC_Tabulation_System
             util.AllScore_To_Decimal(dgvPreElim, 11, 2);
         }
 
-
         private void cmbEvents_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //frmTop10 top = new frmTop10();
-
-            //top.EventName = cmbEvents.Text;
-            //top.topFinalist = Convert.ToInt32(lblNoSemiFinalist.Text);
-            //top.totalCandidates = Convert.ToInt32(lblCandidates.Text);
-
-            //top.All_Event_DataGridView_Design();
-            //top.ShowDialog();
-
+        {                                  
             if (cmbEvents.Text.Equals("Long Gown Only"))
-            {               
-                util.LoadDataTable(dgvPreElim, "long_gown");
-                util.LoadDataTable(dgvSemiFinal, "pre_elim");
+            {
+                top.EventName = cmbEvents.Text;
+                top.topFinalist = Convert.ToInt32(lblNoSemiFinalist.Text);
+                top.totalCandidates = Convert.ToInt32(lblCandidates.Text);
+               
+                //Design
+                top.All_Event_DataGridView_Design();
 
-                Desgin_Elimination();
-                Desgin_LongGownOnly(); 
+                ////Show Form
+                //top.ShowDialog();
+               
+                //util.LoadDataTable(dgvPreElim, "long_gown");
+                //util.LoadDataTable(dgvSemiFinal, "pre_elim");
+
+                //Desgin_Elimination();
+                //Desgin_LongGownOnly(); 
+
             }
             else if(cmbEvents.Text.Equals("Long Gown with Beauty Face"))
-            {
+            {                
+                top.EventName = cmbEvents.Text;
+                top.topFinalist = Convert.ToInt32(lblNoSemiFinalist.Text);
+                top.totalCandidates = Convert.ToInt32(lblCandidates.Text);
+
+                top.All_Event_DataGridView_Design();
+                top.ShowDialog();
+
                 util.LoadDataTable(dgvPreElim, "beauty_and_long_gown");
                 Design_LongGownAndBeauty();
             }
 
             else if (cmbEvents.Text.Equals("Semi Final - Q and A"))
             {
+                top.EventName = cmbEvents.Text;
+                top.topFinalist = Convert.ToInt32(lblNoSemiFinalist.Text);
+                top.totalCandidates = Convert.ToInt32(lblCandidates.Text);
+
+                top.All_Event_DataGridView_Design();
+                top.ShowDialog();
+
                 util.LoadDataTable(dgvTOP10, "semi_final");
                 Design_TOP10();
             }
 
             else if (cmbEvents.Text.Equals("Final - Q and A"))
             {
+                top.EventName = cmbEvents.Text;
+                top.topFinalist = Convert.ToInt32(lblNoSemiFinalist.Text);
+                top.totalCandidates = Convert.ToInt32(lblCandidates.Text);
+
+                top.All_Event_DataGridView_Design();
+                top.ShowDialog();
+
                 util.LoadDataTable(dgvTOP10, "final");
                 Design_TOP10();
             }
-
         }
 
         private void cmbSetEvent_SelectedIndexChanged(object sender, EventArgs e)
@@ -648,6 +672,14 @@ namespace GOC_Tabulation_System
             FormStatus frm = new FormStatus();
             frm.Form_Status = frmLock.Text;
             frm.Update();
+
+            frmTop10 top = new frmTop10();
+            top.timer1.Enabled = true;
+        }
+
+        private void btnPrintSemi_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }

@@ -76,7 +76,6 @@ namespace GOC_Tabulation_System
             toSave = true;
         }
 
-
         public void ScoreValidator_BEAUTY(DataGridView dgv, int minimum_score ,int maximum_score)
         {
             foreach (DataGridViewRow Myrow in dgv.Rows)
@@ -163,5 +162,7 @@ namespace GOC_Tabulation_System
                 }
             }
         }
+
+        
     }
 }

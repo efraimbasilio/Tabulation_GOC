@@ -12,6 +12,7 @@ namespace GOC_Tabulation_System
 {
     public partial class frmSetting : Form
     {
+        
         public void setThis()
         {
             if (this.CheckRequiredFields() == true)
@@ -83,6 +84,7 @@ namespace GOC_Tabulation_System
         public frmSetting()
         {
             InitializeComponent();
+            
         }
 
         private void btnSaveConfiguration_Click(object sender, EventArgs e)
@@ -101,6 +103,18 @@ namespace GOC_Tabulation_System
             {
                 btnSaveConfiguration.PerformClick();
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+           
+        }
+
+       
+
+        private void frmSetting_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -25,6 +25,8 @@ namespace GOC_Tabulation_System
             set { eventName = value; }
         }
 
+        List<Event> events = new List<Event>();
+
         public void Update()
         {
             try
@@ -54,5 +56,42 @@ namespace GOC_Tabulation_System
             }
         }
 
+        public List<Event> Load()
+        {
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(GOC_Tabulation_System.Config.GetConnectionString()))
+                {
+                    con.Open();
+
+
+                    string sql = "SELECT * FROM event";
+
+
+                    MySqlCommand cmd = new MySqlCommand(sql, con);
+
+                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    //loop while have record
+                    while (reader.Read())
+                    {
+                        //instantiate model
+                        Event e = new Event();
+
+                        //prepare properties                      
+                        e.eventName = reader["event_name"].ToString();
+
+                        events.Add(e);
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+
+                MessageBox.Show("ERROR : " + ex.ToString(), "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return events;
+
+        }//End of Load
     }
 }

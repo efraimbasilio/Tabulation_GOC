@@ -249,5 +249,15 @@ namespace GOC_Tabulation_System.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Golden_Olympus_Colleges_Shield {
+            get {
+                object obj = ResourceManager.GetObject("Golden Olympus Colleges Shield", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

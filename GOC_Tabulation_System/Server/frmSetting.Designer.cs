@@ -201,6 +201,8 @@
             this.Controls.Add(this.label5);
             this.Name = "frmSetting";
             this.Text = "frmSetting";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmSetting_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmSetting_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -18,10 +18,53 @@ namespace GOC_Tabulation_System
         public int totalCandidates;
         public bool toSave;
         public string LockStatus;
+        public string Judge;
+       // public string Activate;
 
         //public int _minScore_BEAUTY = 30, _maxScore_BEAUTY = 60, _minScore_WIT_INT = 20, _maxScore_WIT_INT = 40;
 
         Utilities util = new Utilities();
+        Event theEvent = new Event();
+        Candidates can = new Candidates();
+        Judges judge = new Judges();
+        TopFinalists top = new TopFinalists();
+
+        List<Candidates> listCandidates = new List<Candidates>();      
+        List<Event> events = new List<Event>();
+        List<TopFinalists> listTop = new List<TopFinalists>();
+
+        public void No_of_Candidates()
+        {
+            listCandidates.Clear();
+
+            listCandidates = can.Load();
+            foreach (var item in listCandidates)
+            {
+                totalCandidates = Convert.ToInt32(item.Candidate);
+            }
+        }
+
+        public void Current_Event()
+        {           
+            events.Clear();
+            events = theEvent.Load();
+
+            foreach (var item in events)
+            {
+                EventName = item.EventName;
+            }                    
+        }
+
+        public void No_of_Finalist()
+        {
+            listTop.Clear();
+            listTop = top.Load();
+
+            foreach (var item in listTop)
+            {
+                topFinalist = Convert.ToInt32(item.FinalistsCount);
+            }
+        }
 
         #region DataGridView Input Validators
         private void dgvAllEvent_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
@@ -155,7 +198,7 @@ namespace GOC_Tabulation_System
 
 
         public void All_Event_DataGridView_Design()
-        {            
+        {           
             if (EventName.Equals("Semi Final - Q and A"))
             {
                 #region Design Code For TOP 10
@@ -332,10 +375,29 @@ namespace GOC_Tabulation_System
                 #endregion
             }
         }
+
         
+        
+        public void EventLoad()
+        {
+            //if (cmbEvents.Text.Equals("Long Gown Only"))
+            //{                
+            //    util.LoadDataTable(dgvAllEvent, "long_gown");
+            //    //util.LoadDataTable(dgvSemiFinal, "pre_elim");
+
+            //    Desgin_Elimination();
+            //    Desgin_LongGownOnly();
+            //}
+        }
+
         public frmTop10()
         {
-            InitializeComponent();                      
+            InitializeComponent();
+            No_of_Candidates();
+            Current_Event();
+            No_of_Finalist();
+
+            timer1.Enabled = true;                 
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -345,7 +407,7 @@ namespace GOC_Tabulation_System
      
         private void frmTop10_Load(object sender, EventArgs e)
         {
-                       
+            lblJudgeNo.Text = Judge;
         }
        
         private void dgvAllEvent_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -489,33 +551,47 @@ namespace GOC_Tabulation_System
         }
 
         private void timer1_Tick(object sender, EventArgs e)
+        {            
+            LockMe();          
+        }
+        public void TimeTurnOn()
         {
-            FormStatus frm = new FormStatus();
-            List<FormStatus> lists = new List<FormStatus>();
-            lists.Clear();
-            lists = frm.Load();
-            foreach (var item in lists)
-            {
-                LockStatus = item.Form_Status;
-            }
-
-            LockMe();
+            timer1.Enabled = true;
         }
        
         private void LockMe()
-        {
-            if (LockStatus.Equals("Active"))
-            {
-                frmSetting frm = new frmSetting();
-                frm.ShowDialog();
-                   
-            }
-            else
-            {
-                frmSetting frm = new frmSetting();
-                frm.Close();
-            }
+        {            
+            #region Form Lock
+            FormStatus frm = new FormStatus();
+                List<FormStatus> lists = new List<FormStatus>();
+                lists.Clear();
+                lists = frm.Load();
+
+                foreach (var item in lists)
+                {
+                    LockStatus = item.Form_Status;
+                }
             
+                if (LockStatus.Equals("Active"))
+                {
+                    //off timer
+                    timer1.Enabled = false;
+                
+                    //Show Lock Form
+                    frmLocked frm2 = new frmLocked();
+                    frm2.ShowDialog();
+                  
+                }
+                else
+                {
+
+                Current_Event();
+                All_Event_DataGridView_Design();
+                timer1.Enabled = false;
+            }
+            #endregion          
         }
+
+        
     }
 }

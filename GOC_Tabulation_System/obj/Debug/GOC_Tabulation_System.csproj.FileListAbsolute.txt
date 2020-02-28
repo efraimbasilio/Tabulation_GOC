@@ -85,3 +85,4 @@ C:\Users\emaru\Documents\GitHub\Tabulation_GOC\GOC_Tabulation_System\bin\Debug\S
 C:\Users\emaru\Documents\GitHub\Tabulation_GOC\GOC_Tabulation_System\bin\Debug\MySql.Data.xml
 C:\Users\emaru\Documents\GitHub\Tabulation_GOC\GOC_Tabulation_System\obj\Debug\GOC_Tabulation_System.frmSetting.resources
 C:\Users\Instructor\Documents\GitHub\Tabulation_GOC\GOC_Tabulation_System\obj\Debug\GOC_Tabulation_System.frmSetMe.resources
+C:\Users\Instructor\Documents\GitHub\Tabulation_GOC\GOC_Tabulation_System\obj\Debug\GOC_Tabulation_System.frmLocked.resources
