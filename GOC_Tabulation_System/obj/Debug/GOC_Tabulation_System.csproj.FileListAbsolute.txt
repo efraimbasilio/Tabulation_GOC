@@ -27,7 +27,6 @@ C:\Users\Instructor\Documents\GitHub\Tabulation_GOC\GOC_Tabulation_System\obj\De
 C:\Users\Instructor\Documents\GitHub\Tabulation_GOC\GOC_Tabulation_System\obj\Debug\GOC_Tabulation_System.pdb
 C:\Users\Instructor\Documents\GitHub\Tabulation_GOC\GOC_Tabulation_System\bin\Debug\GOC_Tabulation_System.exe
 C:\Users\Instructor\Documents\GitHub\Tabulation_GOC\GOC_Tabulation_System\bin\Debug\GOC_Tabulation_System.pdb
-C:\Users\Instructor\Documents\GitHub\Tabulation_GOC\GOC_Tabulation_System\obj\Debug\GOC_Tabulation_System.csprojResolveAssemblyReference.cache
 C:\Users\Instructor\Documents\GitHub\Tabulation_GOC\GOC_Tabulation_System\obj\Debug\GOC_Tabulation_System.Form1.resources
 C:\Users\Instructor\Documents\GitHub\Tabulation_GOC\GOC_Tabulation_System\obj\Debug\GOC_Tabulation_System.frmAddPicturecs.resources
 C:\Users\Instructor\Documents\GitHub\Tabulation_GOC\GOC_Tabulation_System\obj\Debug\GOC_Tabulation_System.frmClient.resources

@@ -37,8 +37,8 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.pnlDataGrid = new System.Windows.Forms.Panel();
             this.dgvAllEvent = new System.Windows.Forms.DataGridView();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.pnlDataGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllEvent)).BeginInit();
@@ -49,7 +49,6 @@
             // 
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.lblJudgeNo);
-            this.panel1.Controls.Add(this.lblEvent);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -62,7 +61,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 27);
+            this.label2.Location = new System.Drawing.Point(1240, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 26);
             this.label2.TabIndex = 4;
@@ -72,7 +71,7 @@
             // 
             this.lblJudgeNo.AutoSize = true;
             this.lblJudgeNo.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblJudgeNo.Location = new System.Drawing.Point(104, 27);
+            this.lblJudgeNo.Location = new System.Drawing.Point(1332, 9);
             this.lblJudgeNo.Name = "lblJudgeNo";
             this.lblJudgeNo.Size = new System.Drawing.Size(23, 26);
             this.lblJudgeNo.TabIndex = 3;
@@ -81,20 +80,21 @@
             // lblEvent
             // 
             this.lblEvent.AutoSize = true;
-            this.lblEvent.Font = new System.Drawing.Font("Roboto Cn", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEvent.Location = new System.Drawing.Point(342, 61);
+            this.lblEvent.Font = new System.Drawing.Font("Monotype Corsiva", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEvent.Location = new System.Drawing.Point(72, 97);
             this.lblEvent.Name = "lblEvent";
-            this.lblEvent.Size = new System.Drawing.Size(74, 25);
+            this.lblEvent.Size = new System.Drawing.Size(104, 39);
             this.lblEvent.TabIndex = 2;
             this.lblEvent.Text = "TOP 10";
+            this.lblEvent.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Chopin Script", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(190, 2);
+            this.label1.Font = new System.Drawing.Font("Chopin Script", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(26, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(379, 65);
+            this.label1.Size = new System.Drawing.Size(526, 90);
             this.label1.TabIndex = 1;
             this.label1.Text = "Ms. Paniqui 2020";
             // 
@@ -104,9 +104,9 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Roboto Cn", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(162, 726);
+            this.btnSave.Location = new System.Drawing.Point(65, 635);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(427, 37);
+            this.btnSave.Size = new System.Drawing.Size(452, 59);
             this.btnSave.TabIndex = 10;
             this.btnSave.Text = "Submit Score";
             this.btnSave.UseVisualStyleBackColor = false;
@@ -115,10 +115,10 @@
             // pnlDataGrid
             // 
             this.pnlDataGrid.Controls.Add(this.dgvAllEvent);
-            this.pnlDataGrid.Font = new System.Drawing.Font("Roboto Cn", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlDataGrid.Location = new System.Drawing.Point(606, 111);
+            this.pnlDataGrid.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlDataGrid.Location = new System.Drawing.Point(523, 100);
             this.pnlDataGrid.Name = "pnlDataGrid";
-            this.pnlDataGrid.Size = new System.Drawing.Size(642, 616);
+            this.pnlDataGrid.Size = new System.Drawing.Size(831, 656);
             this.pnlDataGrid.TabIndex = 9;
             // 
             // dgvAllEvent
@@ -134,7 +134,7 @@
             this.dgvAllEvent.RowHeadersVisible = false;
             this.dgvAllEvent.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgvAllEvent.RowTemplate.Height = 30;
-            this.dgvAllEvent.Size = new System.Drawing.Size(642, 616);
+            this.dgvAllEvent.Size = new System.Drawing.Size(831, 656);
             this.dgvAllEvent.TabIndex = 3;
             this.dgvAllEvent.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dgvAllEvent.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAllEvent_CellEndEdit);
@@ -142,21 +142,21 @@
             this.dgvAllEvent.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvAllEvent_EditingControlShowing);
             this.dgvAllEvent.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvAllEvent_KeyDown);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::GOC_Tabulation_System.Properties.Resources.Golden_Olympus_Colleges_Shield;
-            this.pictureBox1.Location = new System.Drawing.Point(148, 89);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(452, 632);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
-            // 
             // timer1
             // 
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GOC_Tabulation_System.Properties.Resources.Golden_Olympus_Colleges_Shield;
+            this.pictureBox1.Location = new System.Drawing.Point(65, 88);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(452, 632);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
             // 
             // frmTop10
             // 
@@ -164,6 +164,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1366, 768);
+            this.Controls.Add(this.lblEvent);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlDataGrid);
@@ -179,6 +180,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllEvent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
