@@ -60,6 +60,7 @@
             this.cmbJudge.Name = "cmbJudge";
             this.cmbJudge.Size = new System.Drawing.Size(62, 21);
             this.cmbJudge.TabIndex = 4;
+            this.cmbJudge.SelectedIndexChanged += new System.EventHandler(this.cmbJudge_SelectedIndexChanged);
             // 
             // button1
             // 

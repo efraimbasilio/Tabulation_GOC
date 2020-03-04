@@ -52,6 +52,7 @@
             this.panel1.Controls.Add(this.lblEvent);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1366, 94);
@@ -60,20 +61,20 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Roboto Cn", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(12, 27);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 25);
+            this.label2.Size = new System.Drawing.Size(97, 26);
             this.label2.TabIndex = 4;
             this.label2.Text = "Judge No:";
             // 
             // lblJudgeNo
             // 
             this.lblJudgeNo.AutoSize = true;
-            this.lblJudgeNo.Font = new System.Drawing.Font("Roboto Cn", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJudgeNo.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblJudgeNo.Location = new System.Drawing.Point(104, 27);
             this.lblJudgeNo.Name = "lblJudgeNo";
-            this.lblJudgeNo.Size = new System.Drawing.Size(23, 25);
+            this.lblJudgeNo.Size = new System.Drawing.Size(23, 26);
             this.lblJudgeNo.TabIndex = 3;
             this.lblJudgeNo.Text = "1";
             // 

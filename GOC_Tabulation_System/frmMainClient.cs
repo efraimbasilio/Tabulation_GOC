@@ -124,5 +124,9 @@ namespace GOC_Tabulation_System
             #endregion          
         }
 
+        private void cmbJudge_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

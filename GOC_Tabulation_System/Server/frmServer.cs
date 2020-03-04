@@ -627,7 +627,7 @@ namespace GOC_Tabulation_System
                 top.totalCandidates = Convert.ToInt32(lblCandidates.Text);
 
                 top.All_Event_DataGridView_Design();
-                top.ShowDialog();
+                //top.ShowDialog();
 
                 util.LoadDataTable(dgvPreElim, "beauty_and_long_gown");
                 Design_LongGownAndBeauty();
@@ -640,7 +640,7 @@ namespace GOC_Tabulation_System
                 top.totalCandidates = Convert.ToInt32(lblCandidates.Text);
 
                 top.All_Event_DataGridView_Design();
-                top.ShowDialog();
+                //top.ShowDialog();
 
                 util.LoadDataTable(dgvTOP10, "semi_final");
                 Design_TOP10();
@@ -653,7 +653,7 @@ namespace GOC_Tabulation_System
                 top.totalCandidates = Convert.ToInt32(lblCandidates.Text);
 
                 top.All_Event_DataGridView_Design();
-                top.ShowDialog();
+                //top.ShowDialog();
 
                 util.LoadDataTable(dgvTOP10, "final");
                 Design_TOP10();
