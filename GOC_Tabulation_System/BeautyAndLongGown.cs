@@ -87,7 +87,7 @@ namespace GOC_Tabulation_System
         }
 
 
-        public void Save_Dummy_Final()
+        public void Save()
         {
             try
             {
@@ -137,7 +137,7 @@ namespace GOC_Tabulation_System
             }
         }
 
-        public void Save()
+        public void Update()
         {
             try
             {
@@ -148,20 +148,36 @@ namespace GOC_Tabulation_System
                     //try to open connection
                     con.Open();
 
-                    //string sql = "UPDATE long_gown SET  j1=@score WHERE can_no=@can_no;";
-                    string sql = string.Concat("UPDATE beauty_and_long_gown SET " + "b" + judge + " = @score_beauty, " + "g" + judge + " = @score_wit WHERE can_no =@can_no;");
+                    string sql = "UPDATE beauty_and_long_gown SET b1=@b1,g1=@g1,b2=@b2,g2=@g2,b3=@b3,g3=@g3,b4=@b4,g4=@g4,b5=@b5,g5=@g5,b6=@b6,g6=@g6,b7=@b7,g7=@g7,b8=@b8,g8=@g8,b9=@b9,g9=@g9,total=@total " +
+                                    "WHERE can_no= @can_no;";
 
                     MySqlCommand cmd = new MySqlCommand(sql, con);
 
-                    cmd.Parameters.AddWithValue("can_no", can_no);
-                    cmd.Parameters.AddWithValue("score_beauty", score_beauty);
-                    cmd.Parameters.AddWithValue("score_wit", score_wit);
-                    cmd.Parameters.AddWithValue("judge", judge);
+                    cmd.Parameters.AddWithValue("can_no",can_no);
+                    cmd.Parameters.AddWithValue("b1", b1);
+                    cmd.Parameters.AddWithValue("g1", g1);
+                    cmd.Parameters.AddWithValue("b2", b2);
+                    cmd.Parameters.AddWithValue("g2", g2);
+                    cmd.Parameters.AddWithValue("b3", b3);
+                    cmd.Parameters.AddWithValue("g3", g3);
+                    cmd.Parameters.AddWithValue("b4", b4);
+                    cmd.Parameters.AddWithValue("g4", g4);
+                    cmd.Parameters.AddWithValue("b5", b5);
+                    cmd.Parameters.AddWithValue("g5", g5);
+                    cmd.Parameters.AddWithValue("b6", b6);
+                    cmd.Parameters.AddWithValue("g6", g6);
+                    cmd.Parameters.AddWithValue("b7", b7);
+                    cmd.Parameters.AddWithValue("g7", g7);
+                    cmd.Parameters.AddWithValue("b8", b8);
+                    cmd.Parameters.AddWithValue("g8", g8);
+                    cmd.Parameters.AddWithValue("b9", b9);
+                    cmd.Parameters.AddWithValue("g9", g9);
+                    cmd.Parameters.AddWithValue("total", total);
 
 
                     cmd.ExecuteNonQuery();
 
-                    //MessageBox.Show("Recorde Updated!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //MessageBox.Show("Record Saved!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (MySqlException ex)

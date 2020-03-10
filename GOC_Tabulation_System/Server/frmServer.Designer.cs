@@ -190,7 +190,7 @@
             this.cmbEvents.FormattingEnabled = true;
             this.cmbEvents.Items.AddRange(new object[] {
             "Long Gown Only",
-            "Long Gown with Beauty Face",
+            "Long Gown Competition",
             "Semi Final - Q and A",
             "Final - Q and A"});
             this.cmbEvents.Location = new System.Drawing.Point(13, 173);
@@ -309,7 +309,7 @@
             this.cmbSetEvent.FormattingEnabled = true;
             this.cmbSetEvent.Items.AddRange(new object[] {
             "Long Gown Only",
-            "Long Gown with Beauty Face",
+            "Long Gown Competition",
             "Semi Final - Q and A",
             "Final - Q and A"});
             this.cmbSetEvent.Location = new System.Drawing.Point(13, 104);

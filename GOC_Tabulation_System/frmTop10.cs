@@ -286,7 +286,7 @@ namespace GOC_Tabulation_System
                 #endregion
             }
 
-            else if (EventName.Equals("Long Gown with Beauty Face"))
+            else if (EventName.Equals("Long Gown Competition"))
             {
                 #region Design Code For TOP 10
                 lblEvent.Text = EventName;
@@ -294,8 +294,8 @@ namespace GOC_Tabulation_System
                 //Header Contetnt
                 dgvAllEvent.ColumnCount = 3;
                 dgvAllEvent.Columns[0].Name = "#";
-                dgvAllEvent.Columns[1].Name = "Beauty of Face and Body Proportion [25 - 13]";
-                dgvAllEvent.Columns[2].Name = "Long Gown Competition [25 - 13]";
+                dgvAllEvent.Columns[1].Name = "Overall Impact [10 - 5]";
+                dgvAllEvent.Columns[2].Name = "Long Gown [25 - 13]";
                 //dgvAllEvent.Columns[3].Name = "Total Score";
 
                 //Alignments
@@ -433,19 +433,19 @@ namespace GOC_Tabulation_System
                 util.ScoreValidator_WIT_INT(dgvAllEvent, _minScore_WIT_INT, _maxScore_WIT_INT);
             }
 
-            else if (EventName.Equals("Final - Q and A"))
-            {
-                //STATIC VALUES
-                int _minScore_BEAUTY = 35, _maxScore_BEAUTY = 70, _minScore_WIT_INT = 15, _maxScore_WIT_INT = 30;
-                util.NoBlankScore(dgvAllEvent);
-                util.ScoreValidator_BEAUTY(dgvAllEvent, _minScore_BEAUTY, _maxScore_BEAUTY);
-                util.ScoreValidator_WIT_INT(dgvAllEvent, _minScore_WIT_INT, _maxScore_WIT_INT);
-            }
+            //else if (EventName.Equals("Final - Q and A"))
+            //{
+            //    //STATIC VALUES
+            //    int _minScore_BEAUTY = 35, _maxScore_BEAUTY = 70, _minScore_WIT_INT = 15, _maxScore_WIT_INT = 30;
+            //    util.NoBlankScore(dgvAllEvent);
+            //    util.ScoreValidator_BEAUTY(dgvAllEvent, _minScore_BEAUTY, _maxScore_BEAUTY);
+            //    util.ScoreValidator_WIT_INT(dgvAllEvent, _minScore_WIT_INT, _maxScore_WIT_INT);
+            //}
 
-            else if (EventName.Equals("Long Gown with Beauty Face"))
+            else if (EventName.Equals("Long Gown Competition"))
             {
                 //STATIC VALUES
-                int _minScore_BEAUTY = 13, _maxScore_BEAUTY = 25, _minScore_WIT_INT = 13, _maxScore_WIT_INT = 25;
+                int _minScore_BEAUTY = 5, _maxScore_BEAUTY = 10, _minScore_WIT_INT = 13, _maxScore_WIT_INT = 25;
                 util.NoBlankScore(dgvAllEvent);
                 util.ScoreValidator_BEAUTY(dgvAllEvent, _minScore_BEAUTY, _maxScore_BEAUTY);
                 util.ScoreValidator_WIT_INT(dgvAllEvent, _minScore_WIT_INT, _maxScore_WIT_INT);
@@ -470,83 +470,96 @@ namespace GOC_Tabulation_System
 
             if (util.toSave == true)
             {
-                string message = "Please double check the scores before submitting , Submit score now ?";
+                string message = "Please double check the scores before submitting ?";
                 string title = "Tabulation System";
                 MessageBoxButtons buttons = MessageBoxButtons.YesNo;
                 DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Information);
 
                 if (result == DialogResult.Yes)
                 {
-                    if (EventName.Equals("Long Gown Only"))
+                    string message2 = "Submit score now?";
+                    string title2 = "Tabulation System";
+                    MessageBoxButtons buttons2 = MessageBoxButtons.YesNo;
+                    DialogResult result2 = MessageBox.Show(message2, title2, buttons2, MessageBoxIcon.Information);
+
+                    if (result == DialogResult.Yes)
                     {
-                        #region LongGownOnly
-                        LongGownOnly score = new LongGownOnly();
-                        for (int i = 0; i < dgvAllEvent.Rows.Count; i++)
+                        if (EventName.Equals("Long Gown Only"))
                         {
-                            score.Judge = lblJudgeNo.Text;//Judge No
-                            score.Can_no = dgvAllEvent.Rows[i].Cells[0].Value.ToString();//Candidate Number    [0]
-                            score.Score = dgvAllEvent.Rows[i].Cells[1].Value.ToString();//Score per candidate [1]
-                            score.Save();
+                            #region LongGownOnly
+                            LongGownOnly score = new LongGownOnly();
+                            for (int i = 0; i < dgvAllEvent.Rows.Count; i++)
+                            {
+                                score.Judge = lblJudgeNo.Text;//Judge No
+                                score.Can_no = dgvAllEvent.Rows[i].Cells[0].Value.ToString();//Candidate Number    [0]
+                                score.Score = dgvAllEvent.Rows[i].Cells[1].Value.ToString();//Score per candidate [1]
+                                score.Save();
+                            }
+                            MessageBox.Show("Record Submitted!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            #endregion
                         }
-                        MessageBox.Show("Record Submitted!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        #endregion
+
+                        else if (EventName.Equals("Semi Final - Q and A"))
+                        {
+                            #region SemiFinal
+                            SemiFinal score = new SemiFinal();
+                            for (int i = 0; i < dgvAllEvent.Rows.Count; i++)
+                            {
+                                score.Judge = lblJudgeNo.Text;//Judge No
+                                score.Can_no = dgvAllEvent.Rows[i].Cells[0].Value.ToString();//Candidate Number    [0]
+                                score.Score_beauty = dgvAllEvent.Rows[i].Cells[1].Value.ToString();//Score per candidate [1
+                                score.Score_wit = dgvAllEvent.Rows[i].Cells[2].Value.ToString();//Score per candidate [1]
+
+                                score.Save();
+                            }
+                            MessageBox.Show("Record Submitted!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            #endregion
+                        }
+
+                        else if (EventName.Equals("Final - Q and A"))
+                        {
+                            #region Final - Q and A
+                            Final score = new Final();
+                            for (int i = 0; i < dgvAllEvent.Rows.Count; i++)
+                            {
+                                score.Judge = lblJudgeNo.Text;//Judge No
+                                score.Can_no = dgvAllEvent.Rows[i].Cells[0].Value.ToString();//Candidate Number    [0]
+                                score.Score_beauty = dgvAllEvent.Rows[i].Cells[1].Value.ToString();//Score per candidate [1
+                                score.Score_wit = dgvAllEvent.Rows[i].Cells[2].Value.ToString();//Score per candidate [1]
+
+                                score.Save();
+                            }
+                            MessageBox.Show("Record Submitted!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            #endregion
+                        }
+
+                        else if (EventName.Equals("Long Gown Competition"))
+                        {
+                            #region Long Gown with Beauty Face
+
+                            BeautyAndLongGown score = new BeautyAndLongGown();
+
+                            for (int i = 0; i < dgvAllEvent.Rows.Count; i++)
+                            {
+                                score.Judge = lblJudgeNo.Text;//Judge No
+                                score.Can_no = dgvAllEvent.Rows[i].Cells[0].Value.ToString();//Candidate Number    [0]
+                                score.Score_beauty = dgvAllEvent.Rows[i].Cells[1].Value.ToString();//Score per candidate [1
+                                score.Score_wit = dgvAllEvent.Rows[i].Cells[2].Value.ToString();//Score per candidate [1]
+
+                                score.Save();
+                            }
+                            MessageBox.Show("Record Submitted!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            #endregion
+                        }
+
+                        this.Dispose();
+                        frmMainClient main = new frmMainClient();
+                        main.ShowDialog();
                     }
-                    else if (EventName.Equals("Semi Final - Q and A"))
+                    else
                     {
-                        #region SemiFinal
-                        SemiFinal score = new SemiFinal();
-                        for (int i = 0; i < dgvAllEvent.Rows.Count; i++)
-                        {
-                            score.Judge = lblJudgeNo.Text;//Judge No
-                            score.Can_no = dgvAllEvent.Rows[i].Cells[0].Value.ToString();//Candidate Number    [0]
-                            score.Score_beauty = dgvAllEvent.Rows[i].Cells[1].Value.ToString();//Score per candidate [1
-                            score.Score_wit = dgvAllEvent.Rows[i].Cells[2].Value.ToString();//Score per candidate [1]
-
-                            score.Save();
-                        }
-                        MessageBox.Show("Record Submitted!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        #endregion
-                    }
-
-                    else if (EventName.Equals("Final - Q and A"))
-                    {
-                        #region Final - Q and A
-                        Final score = new Final();
-                        for (int i = 0; i < dgvAllEvent.Rows.Count; i++)
-                        {
-                            score.Judge = lblJudgeNo.Text;//Judge No
-                            score.Can_no = dgvAllEvent.Rows[i].Cells[0].Value.ToString();//Candidate Number    [0]
-                            score.Score_beauty = dgvAllEvent.Rows[i].Cells[1].Value.ToString();//Score per candidate [1
-                            score.Score_wit = dgvAllEvent.Rows[i].Cells[2].Value.ToString();//Score per candidate [1]
-
-                            score.Save();
-                        }
-                        MessageBox.Show("Record Submitted!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        #endregion
-                    }
-
-                    else if (EventName.Equals("Long Gown with Beauty Face"))
-                    {
-                        #region Long Gown with Beauty Face
-
-                        BeautyAndLongGown score = new BeautyAndLongGown();
-
-                        for (int i = 0; i < dgvAllEvent.Rows.Count; i++)
-                        {
-                            score.Judge = lblJudgeNo.Text;//Judge No
-                            score.Can_no = dgvAllEvent.Rows[i].Cells[0].Value.ToString();//Candidate Number    [0]
-                            score.Score_beauty = dgvAllEvent.Rows[i].Cells[1].Value.ToString();//Score per candidate [1
-                            score.Score_wit = dgvAllEvent.Rows[i].Cells[2].Value.ToString();//Score per candidate [1]
-
-                            score.Save();
-                        }
-                        MessageBox.Show("Record Submitted!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        #endregion
-                    }
-                    this.Dispose();
-                    frmMainClient main = new frmMainClient();
-                    main.ShowDialog();
-                    
+                        return;
+                    }                    
                 }
             }
             else

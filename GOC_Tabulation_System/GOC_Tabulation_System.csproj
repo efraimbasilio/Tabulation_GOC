@@ -77,6 +77,7 @@
     <Compile Include="Model\LongGownOnly.cs" />
     <Compile Include="Model\Candidates.cs" />
     <Compile Include="Connection\Config.cs" />
+    <Compile Include="OverAll.cs" />
     <Compile Include="PreElimination.cs" />
     <Compile Include="Report\CrystalReport1.cs">
       <AutoGen>True</AutoGen>

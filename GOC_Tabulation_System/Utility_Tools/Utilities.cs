@@ -22,7 +22,7 @@ namespace GOC_Tabulation_System
                 {
                     con.Open();
                     
-                    string sql = string.Concat("SELECT * FROM " + tableName + " ");
+                    string sql = string.Concat("SELECT * FROM " + tableName + " ORDER BY total DESC");
                     MySqlCommand cmd = new MySqlCommand(sql, con);
                     MySqlDataAdapter da = new MySqlDataAdapter();
                     da.SelectCommand = cmd;

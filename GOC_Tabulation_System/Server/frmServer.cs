@@ -234,16 +234,16 @@ namespace GOC_Tabulation_System
             for (int i = 0; i < dgvPreElim.RowCount; i++)
             {
                 //clear
-                dgvPreElim.Rows[i].Cells[11].Value = 00.00;
+                dgvPreElim.Rows[i].Cells[20].Value = 00.00;
                 sum = 00.00;
 
-                for (int y = 2; y <=11; y++)
+                for (int y = 2; y <=20; y++)
                 {
                     sum = sum + Convert.ToDouble(dgvPreElim.Rows[i].Cells[y].Value);                    
                 }
                 //To show the Computed Score in the last Column
                 sum = sum / Convert.ToDouble(lblJudges.Text);
-                dgvPreElim.Rows[i].Cells[11].Value = sum.ToString("n");
+                dgvPreElim.Rows[i].Cells[20].Value = sum.ToString("n");
             }
 
            
@@ -442,34 +442,69 @@ namespace GOC_Tabulation_System
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            Compute_LongGownOnly();
+            #region Long Gown
+            //Compute_LongGownOnly();
+            //ServerScores score = new ServerScores();
+            //PreElimination elim = new PreElimination();
+            //for (int i = 0; i < dgvPreElim.Rows.Count; i++)
+            //{
+            //    score.Can_no = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[1].Value.ToString());
+            //    score.J1 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[2].Value.ToString());
+            //    score.J2 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[3].Value.ToString());
+            //    score.J3 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[4].Value.ToString());
+            //    score.J4 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[5].Value.ToString());
+            //    score.J5 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[6].Value.ToString());
+            //    score.J6 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[7].Value.ToString());
+            //    score.J7 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[8].Value.ToString());
+            //    score.J8 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[9].Value.ToString());
+            //    score.J9 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[10].Value.ToString());
+            //    score.Total = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[11].Value.ToString());
 
-            ServerScores score = new ServerScores();
-            PreElimination elim = new PreElimination();
+            //    //MessageBox.Show("NO # " + dgvPreElim.Rows[i].Cells[1].Value.ToString() + " SCORE: "+ dgvPreElim.Rows[i].Cells[11].Value.ToString());
+
+            //    score.Update();
+
+            //    elim.Can_no = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[1].Value.ToString());
+            //    elim.Gown = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[11].Value.ToString());
+
+            //    elim.Update_Long_Gown();
+            //    // MessageBox.Show("AA", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
+            #endregion
+            BeautyAndLongGown semi = new BeautyAndLongGown();
+            Compute_LongGownOnly();
             for (int i = 0; i < dgvPreElim.Rows.Count; i++)
             {
-                score.Can_no = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[1].Value.ToString());
-                score.J1 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[2].Value.ToString());
-                score.J2 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[3].Value.ToString());
-                score.J3 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[4].Value.ToString());
-                score.J4 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[5].Value.ToString());
-                score.J5 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[6].Value.ToString());
-                score.J6 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[7].Value.ToString());
-                score.J7 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[8].Value.ToString());
-                score.J8 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[9].Value.ToString());
-                score.J9 = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[10].Value.ToString());
-                score.Total = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[11].Value.ToString());
+                semi.Can_no = dgvPreElim.Rows[i].Cells[0].Value.ToString();
+                semi.B1 = dgvPreElim.Rows[i].Cells[1].Value.ToString();
+                semi.G1 = dgvPreElim.Rows[i].Cells[2].Value.ToString();
+                semi.B2 = dgvPreElim.Rows[i].Cells[3].Value.ToString();
+                semi.G2 = dgvPreElim.Rows[i].Cells[4].Value.ToString();
+                semi.B3 = dgvPreElim.Rows[i].Cells[5].Value.ToString();
+                semi.G3 = dgvPreElim.Rows[i].Cells[6].Value.ToString();
+                semi.B4 = dgvPreElim.Rows[i].Cells[7].Value.ToString();
+                semi.G4 = dgvPreElim.Rows[i].Cells[8].Value.ToString();
+                semi.B5 = dgvPreElim.Rows[i].Cells[9].Value.ToString();
+                semi.G5 = dgvPreElim.Rows[i].Cells[10].Value.ToString();
+                semi.B6 = dgvPreElim.Rows[i].Cells[11].Value.ToString();
+                semi.G6 = dgvPreElim.Rows[i].Cells[12].Value.ToString();
+                semi.B7 = dgvPreElim.Rows[i].Cells[13].Value.ToString();
+                semi.G7 = dgvPreElim.Rows[i].Cells[14].Value.ToString();
+                semi.B8 = dgvPreElim.Rows[i].Cells[15].Value.ToString();
+                semi.G8 = dgvPreElim.Rows[i].Cells[16].Value.ToString();
+                semi.B9 = dgvPreElim.Rows[i].Cells[17].Value.ToString();
+                semi.G9 = dgvPreElim.Rows[i].Cells[18].Value.ToString();
+                semi.Total = dgvPreElim.Rows[i].Cells[19].Value.ToString();
 
-                //MessageBox.Show("NO # " + dgvPreElim.Rows[i].Cells[1].Value.ToString() + " SCORE: "+ dgvPreElim.Rows[i].Cells[11].Value.ToString());
+                //MessageBox.Show("NO # " + dgvPreElim.Rows[i].Cells[1].Value.ToString() + " SCORE: " + dgvPreElim.Rows[i].Cells[20].Value.ToString());
 
-                score.Update();
-
-                elim.Can_no = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[1].Value.ToString());
-                elim.Gown = string.Format("{0:0.00}", dgvPreElim.Rows[i].Cells[11].Value.ToString());
-
-                elim.Update_Long_Gown();
-               // MessageBox.Show("AA", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                semi.Update();
             }
+
+            //MessageBox.Show("Record Saved!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+           
+
 
             //Load Elim
             util.LoadDataTable(dgvSemiFinal, "pre_elim");
@@ -620,7 +655,7 @@ namespace GOC_Tabulation_System
                 Desgin_LongGownOnly();
 
             }
-            else if(cmbEvents.Text.Equals("Long Gown with Beauty Face"))
+            else if(cmbEvents.Text.Equals("Long Gown Competition"))
             {                
                 top.EventName = cmbEvents.Text;
                 top.topFinalist = Convert.ToInt32(lblNoSemiFinalist.Text);
@@ -629,8 +664,12 @@ namespace GOC_Tabulation_System
                 top.All_Event_DataGridView_Design();
                 //top.ShowDialog();
 
+
+
                 util.LoadDataTable(dgvPreElim, "beauty_and_long_gown");
                 Design_LongGownAndBeauty();
+
+
             }
 
             else if (cmbEvents.Text.Equals("Semi Final - Q and A"))
