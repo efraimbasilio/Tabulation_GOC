@@ -669,12 +669,13 @@ namespace GOC_Tabulation_System
 
         private void frmLock_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             FormStatus frm = new FormStatus();
             frm.Form_Status = frmLock.Text;
             frm.Update();
-
-            frmTop10 top = new frmTop10();
-            top.timer1.Enabled = true;
+            
+            //frmTop10 top = new frmTop10();
+            //top.timer1.Enabled = true;
         }
 
         private void btnPrintSemi_Click(object sender, EventArgs e)

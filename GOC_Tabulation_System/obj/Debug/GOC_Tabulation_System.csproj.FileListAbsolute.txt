@@ -86,3 +86,4 @@ C:\Users\emaru\Documents\GitHub\Tabulation_GOC\GOC_Tabulation_System\obj\Debug\G
 C:\Users\Instructor\Documents\GitHub\Tabulation_GOC\GOC_Tabulation_System\obj\Debug\GOC_Tabulation_System.frmSetMe.resources
 C:\Users\Instructor\Documents\GitHub\Tabulation_GOC\GOC_Tabulation_System\obj\Debug\GOC_Tabulation_System.frmLocked.resources
 C:\Users\Instructor\Documents\GitHub\Tabulation_GOC\GOC_Tabulation_System\obj\Debug\GOC_Tabulation_System.frmMainClient.resources
+C:\Users\Instructor\Documents\GitHub\Tabulation_GOC\GOC_Tabulation_System\obj\Debug\GOC_Tabulation_System.csprojResolveAssemblyReference.cache

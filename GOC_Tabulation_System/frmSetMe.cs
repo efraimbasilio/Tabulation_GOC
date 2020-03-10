@@ -23,14 +23,13 @@ namespace GOC_Tabulation_System
         private void button2_Click(object sender, EventArgs e)
         {           
             frmMainClient frm = new frmMainClient();            
-            frm.Show();
-           
-           
+            frm.Show();                      
         }
 
         private void button1_Click(object sender, EventArgs e)
         {           
-            frmServer frm = new frmServer();          
+            frmServer frm = new frmServer();
+            //this.Dispose();
             frm.ShowDialog();            
         }
 
