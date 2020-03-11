@@ -35,6 +35,8 @@ namespace GOC_Tabulation_System
         protected string b9;
         protected string g9;
         protected string total;
+        protected string total_overall;
+
 
         public string B1 { get { return b1; } set { b1 = value; } }
         public string G1 { get { return g1; } set { g1 = value; } }
@@ -55,6 +57,8 @@ namespace GOC_Tabulation_System
         public string B9 { get { return b9; } set { b9 = value; } }
         public string G9 { get { return g9; } set { g9 = value; } }
         public string Total { get { return total; } set { total = value; } }
+
+        public string Total_overall { get { return total_overall; } set { total_overall = value; } }
 
         public int Id
         {
@@ -148,7 +152,7 @@ namespace GOC_Tabulation_System
                     //try to open connection
                     con.Open();
 
-                    string sql = "UPDATE beauty_and_long_gown SET b1=@b1,g1=@g1,b2=@b2,g2=@g2,b3=@b3,g3=@g3,b4=@b4,g4=@g4,b5=@b5,g5=@g5,b6=@b6,g6=@g6,b7=@b7,g7=@g7,b8=@b8,g8=@g8,b9=@b9,g9=@g9,total=@total " +
+                    string sql = "UPDATE beauty_and_long_gown SET b1=@b1,g1=@g1,b2=@b2,g2=@g2,b3=@b3,g3=@g3,b4=@b4,g4=@g4,b5=@b5,g5=@g5,b6=@b6,g6=@g6,b7=@b7,g7=@g7,b8=@b8,g8=@g8,b9=@b9,g9=@g9,total_long_gown=@total , total_overall=@total_overall " +
                                     "WHERE can_no= @can_no;";
 
                     MySqlCommand cmd = new MySqlCommand(sql, con);
@@ -173,11 +177,13 @@ namespace GOC_Tabulation_System
                     cmd.Parameters.AddWithValue("b9", b9);
                     cmd.Parameters.AddWithValue("g9", g9);
                     cmd.Parameters.AddWithValue("total", total);
+                    cmd.Parameters.AddWithValue("total_overall", total_overall);
+
 
 
                     cmd.ExecuteNonQuery();
 
-                    //MessageBox.Show("Record Saved!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                   // MessageBox.Show("Record Saved!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (MySqlException ex)
@@ -186,6 +192,8 @@ namespace GOC_Tabulation_System
 
             }
         }
+
+        
 
     }
 }

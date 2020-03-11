@@ -95,7 +95,7 @@ namespace GOC_Tabulation_System
                  
                     cmd.ExecuteNonQuery();                    
                 }
-                //MessageBox.Show("Recorde Updated!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               //MessageBox.Show("Recorde Updated!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (MySqlException ex)
             {
@@ -125,6 +125,36 @@ namespace GOC_Tabulation_System
                     cmd.ExecuteNonQuery();
                 }
                 
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("ERROR : " + ex.ToString(), "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
+
+        public void Update_Over_All()
+        {
+            try
+            {
+                //prepare connection string 
+                using (MySqlConnection con = new MySqlConnection(GOC_Tabulation_System.Config.GetConnectionString()))
+                {
+
+                    //try to open connection
+                    con.Open();
+
+                    string sql = "UPDATE pre_elim SET overall_impact=@overall_impact " +
+                                    "WHERE can_no= @can_no;";
+
+                    MySqlCommand cmd = new MySqlCommand(sql, con);
+
+                    cmd.Parameters.AddWithValue("can_no", can_no);
+                    cmd.Parameters.AddWithValue("overall_impact", overall_impact);
+                    cmd.ExecuteNonQuery();
+                }
+
             }
             catch (MySqlException ex)
             {

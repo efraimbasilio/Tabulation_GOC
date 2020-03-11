@@ -22,7 +22,57 @@ namespace GOC_Tabulation_System
                 {
                     con.Open();
                     
+                    string sql = string.Concat("SELECT * FROM " + tableName + " ");
+                    MySqlCommand cmd = new MySqlCommand(sql, con);
+                    MySqlDataAdapter da = new MySqlDataAdapter();
+                    da.SelectCommand = cmd;
+
+                    //initialize new datatable
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    dgv.DataSource = dt;
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("ERROR : " + ex.Message.ToString(), "GOCINFOSYS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void LoadDataTable_Sort_By_total(DataGridView dgv, string tableName)
+        {
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(GOC_Tabulation_System.Config.GetConnectionString()))
+                {
+                    con.Open();
+
                     string sql = string.Concat("SELECT * FROM " + tableName + " ORDER BY total DESC");
+                    MySqlCommand cmd = new MySqlCommand(sql, con);
+                    MySqlDataAdapter da = new MySqlDataAdapter();
+                    da.SelectCommand = cmd;
+
+                    //initialize new datatable
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    dgv.DataSource = dt;
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("ERROR : " + ex.Message.ToString(), "GOCINFOSYS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void LoadDataTableLongGown(DataGridView dgv, string tableName)
+        {
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(GOC_Tabulation_System.Config.GetConnectionString()))
+                {
+                    con.Open();
+
+                    string sql = string.Concat("SELECT * FROM " + tableName + " ");
                     MySqlCommand cmd = new MySqlCommand(sql, con);
                     MySqlDataAdapter da = new MySqlDataAdapter();
                     da.SelectCommand = cmd;

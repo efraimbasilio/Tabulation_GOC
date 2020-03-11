@@ -135,17 +135,17 @@
             // 
             // btnPrintSemi
             // 
-            this.btnPrintSemi.Location = new System.Drawing.Point(260, 13);
+            this.btnPrintSemi.Location = new System.Drawing.Point(497, 12);
             this.btnPrintSemi.Name = "btnPrintSemi";
-            this.btnPrintSemi.Size = new System.Drawing.Size(75, 23);
+            this.btnPrintSemi.Size = new System.Drawing.Size(102, 23);
             this.btnPrintSemi.TabIndex = 13;
-            this.btnPrintSemi.Text = "Preview";
+            this.btnPrintSemi.Text = "Reload and Sort";
             this.btnPrintSemi.UseVisualStyleBackColor = true;
             this.btnPrintSemi.Click += new System.EventHandler(this.btnPrintSemi_Click);
             // 
             // btnSubmitSemi
             // 
-            this.btnSubmitSemi.Location = new System.Drawing.Point(181, 13);
+            this.btnSubmitSemi.Location = new System.Drawing.Point(418, 12);
             this.btnSubmitSemi.Name = "btnSubmitSemi";
             this.btnSubmitSemi.Size = new System.Drawing.Size(75, 23);
             this.btnSubmitSemi.TabIndex = 12;
@@ -189,7 +189,6 @@
             this.cmbEvents.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEvents.FormattingEnabled = true;
             this.cmbEvents.Items.AddRange(new object[] {
-            "Long Gown Only",
             "Long Gown Competition",
             "Semi Final - Q and A",
             "Final - Q and A"});
@@ -308,7 +307,6 @@
             this.cmbSetEvent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSetEvent.FormattingEnabled = true;
             this.cmbSetEvent.Items.AddRange(new object[] {
-            "Long Gown Only",
             "Long Gown Competition",
             "Semi Final - Q and A",
             "Final - Q and A"});
