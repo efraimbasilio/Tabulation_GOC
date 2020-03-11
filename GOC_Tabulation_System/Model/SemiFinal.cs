@@ -122,7 +122,41 @@ namespace GOC_Tabulation_System
             }
         }
 
-        public void Save_Dummy_Semi()
+        //public void Save()
+        //{
+        //    try
+        //    {
+        //        //prepare connection string 
+        //        using (MySqlConnection con = new MySqlConnection(GOC_Tabulation_System.Config.GetConnectionString()))
+        //        {
+
+        //            //try to open connection
+        //            con.Open();
+
+        //            //string sql = "UPDATE long_gown SET  j1=@score WHERE can_no=@can_no;";
+        //            string sql = string.Concat("UPDATE long_gown SET " + "j" + judge + " = @score WHERE can_no=@can_no;");
+
+
+        //            MySqlCommand cmd = new MySqlCommand(sql, con);
+
+        //            cmd.Parameters.AddWithValue("can_no", can_no);
+        //            cmd.Parameters.AddWithValue("score", score);
+        //            cmd.Parameters.AddWithValue("judge", judge);
+
+
+        //            cmd.ExecuteNonQuery();
+
+        //            //MessageBox.Show("Recorde Updated!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //        }
+        //    }
+        //    catch (MySqlException ex)
+        //    {
+        //        MessageBox.Show("ERROR : " + ex.ToString(), "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+        //    }
+        //}
+
+        public void Insert_Top_10()
         {
             try
             {
@@ -134,7 +168,7 @@ namespace GOC_Tabulation_System
                     con.Open();
 
                     string sql = "INSERT INTO semi_final(can_no,b1,w1,b2,w2,b3,w3,b4,w4,b5,w5,b6,w6,b7,w7,b8,w8,b9,w9,total) " +
-                                    " VALUES (@can_no,@b1,@w1,@b2,@w2,@b3,@w3,@b4,@w4,@b5,@w5,@b6,@w6,@b7,@w7,@b8,@w8,@b9,@w9,@total);";
+                                    " VALUES (@can_no,@b1,@w1,@b2,@w2,@b3,@w3,@b4,@w4,@b5,@w5,@b6,@w6,@b7,@w7,@b8,@w8,@b9,@w9,@total);";                    
 
                     MySqlCommand cmd = new MySqlCommand(sql, con);
 
@@ -171,5 +205,8 @@ namespace GOC_Tabulation_System
 
             }
         }
+
+
+
     }
 }

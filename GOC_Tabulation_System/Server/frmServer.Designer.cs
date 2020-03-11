@@ -53,9 +53,14 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.cmbSetEvent = new System.Windows.Forms.ComboBox();
+            this.dgvTopFinalist = new System.Windows.Forms.DataGridView();
+            this.button3 = new System.Windows.Forms.Button();
+            this.btnPass = new System.Windows.Forms.Button();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPreElim)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSemiFinal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTOP10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTopFinalist)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvPreElim
@@ -82,6 +87,7 @@
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "[LONG GOWN COMPETITION]";
             this.linkLabel2.VisitedLinkColor = System.Drawing.Color.Black;
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
             // label1
             // 
@@ -113,6 +119,7 @@
             this.dgvSemiFinal.Size = new System.Drawing.Size(418, 442);
             this.dgvSemiFinal.TabIndex = 9;
             this.dgvSemiFinal.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSemiFinal_CellEndEdit);
+            this.dgvSemiFinal.DoubleClick += new System.EventHandler(this.dgvSemiFinal_DoubleClick);
             // 
             // btnSubmit
             // 
@@ -162,7 +169,9 @@
             this.dgvTOP10.RowHeadersVisible = false;
             this.dgvTOP10.Size = new System.Drawing.Size(1173, 242);
             this.dgvTOP10.TabIndex = 14;
+            this.dgvTOP10.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTOP10_CellContentClick);
             this.dgvTOP10.SortCompare += new System.Windows.Forms.DataGridViewSortCompareEventHandler(this.dgvTOP10_SortCompare);
+            this.dgvTOP10.DoubleClick += new System.EventHandler(this.dgvTOP10_DoubleClick);
             // 
             // btnPreviewTOP
             // 
@@ -243,7 +252,7 @@
             "Inactive"});
             this.frmLock.Location = new System.Drawing.Point(11, 311);
             this.frmLock.Name = "frmLock";
-            this.frmLock.Size = new System.Drawing.Size(69, 23);
+            this.frmLock.Size = new System.Drawing.Size(150, 23);
             this.frmLock.TabIndex = 23;
             this.frmLock.SelectedIndexChanged += new System.EventHandler(this.frmLock_SelectedIndexChanged);
             // 
@@ -316,11 +325,54 @@
             this.cmbSetEvent.TabIndex = 30;
             this.cmbSetEvent.SelectedIndexChanged += new System.EventHandler(this.cmbSetEvent_SelectedIndexChanged);
             // 
+            // dgvTopFinalist
+            // 
+            this.dgvTopFinalist.AllowUserToAddRows = false;
+            this.dgvTopFinalist.AllowUserToDeleteRows = false;
+            this.dgvTopFinalist.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTopFinalist.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column2});
+            this.dgvTopFinalist.Location = new System.Drawing.Point(8, 369);
+            this.dgvTopFinalist.Name = "dgvTopFinalist";
+            this.dgvTopFinalist.ReadOnly = true;
+            this.dgvTopFinalist.RowHeadersVisible = false;
+            this.dgvTopFinalist.Size = new System.Drawing.Size(159, 358);
+            this.dgvTopFinalist.TabIndex = 32;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(181, 13);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 33;
+            this.button3.Text = "Top 10";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // btnPass
+            // 
+            this.btnPass.Location = new System.Drawing.Point(47, 733);
+            this.btnPass.Name = "btnPass";
+            this.btnPass.Size = new System.Drawing.Size(75, 23);
+            this.btnPass.TabIndex = 34;
+            this.btnPass.Text = "Pass";
+            this.btnPass.UseVisualStyleBackColor = true;
+            this.btnPass.Click += new System.EventHandler(this.btnPass_Click);
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Can_no";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
             // frmServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1366, 768);
+            this.Controls.Add(this.btnPass);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.dgvTopFinalist);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cmbSetEvent);
             this.Controls.Add(this.lblNoSemiFinalist);
@@ -355,6 +407,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvPreElim)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSemiFinal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTOP10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTopFinalist)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -387,5 +440,9 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         public System.Windows.Forms.ComboBox cmbSetEvent;
+        private System.Windows.Forms.DataGridView dgvTopFinalist;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnPass;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }

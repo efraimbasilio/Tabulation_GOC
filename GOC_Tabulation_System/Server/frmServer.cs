@@ -15,7 +15,7 @@ namespace GOC_Tabulation_System
         Judges j = new Judges();
         Candidates c = new Candidates();
         frmTop10 top = new frmTop10();
-
+        Final final = new Final();
         List<Judges> js = new List<Judges>();
         List<Candidates> cs = new List<Candidates>();
 
@@ -23,10 +23,12 @@ namespace GOC_Tabulation_System
        
         Utilities util = new Utilities();
 
+        SemiFinal semi = new SemiFinal();
+
         #region Functions
 
-        
-       
+
+
         public void LoadJudgeAndCandidates()
         {
             //Get the number of Judges
@@ -570,7 +572,7 @@ namespace GOC_Tabulation_System
 
         private void btnSubmitTOP_Click(object sender, EventArgs e)
         {
-            SemiFinal semi = new SemiFinal();
+           
             for (int i = 0; i < dgvTOP10.RowCount; i++)
             {
                 semi.Can_no = dgvTOP10.Rows[i].Cells[0].Value.ToString();
@@ -594,7 +596,7 @@ namespace GOC_Tabulation_System
                 semi.W9 = dgvTOP10.Rows[i].Cells[18].Value.ToString();
                 semi.Total = dgvTOP10.Rows[i].Cells[19].Value.ToString();
 
-                semi.Save_Dummy_Semi();
+               // semi.Save_Dummy_Semi();
             }
 
             MessageBox.Show("Record Saved!", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -712,6 +714,8 @@ namespace GOC_Tabulation_System
 
             else if (cmbEvents.Text.Equals("Final - Q and A"))
             {
+
+                dgvTopFinalist.Rows.Clear();
                 top.EventName = cmbEvents.Text;
                 top.topFinalist = Convert.ToInt32(lblNoSemiFinalist.Text);
                 top.totalCandidates = Convert.ToInt32(lblCandidates.Text);
@@ -745,6 +749,159 @@ namespace GOC_Tabulation_System
         private void btnPrintSemi_Click(object sender, EventArgs e)
         {
             util.LoadDataTable_Sort_By_total(dgvSemiFinal, "pre_elim");
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                dgvTopFinalist.Rows.Add(dgvSemiFinal.Rows[i].Cells[1].Value);
+                MessageBox.Show(dgvTopFinalist.Rows[i].Cells[1].Value.ToString());
+            }
+           
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPass_Click(object sender, EventArgs e)
+        {
+           // SemiFinal semi = new SemiFinal();
+            for (int i = 0; i < 10; i++)
+            {
+                semi.Can_no = dgvSemiFinal.Rows[i].Cells[1].Value.ToString();
+                semi.B1 = "00.00";
+                semi.W1 = "00.00";
+                semi.B2 = "00.00";
+                semi.W2 = "00.00";
+                semi.B3 = "00.00";
+                semi.W3 = "00.00";
+                semi.B4 = "00.00";
+                semi.W4 = "00.00";
+                semi.B5 = "00.00";
+                semi.W5 = "00.00";
+                semi.B6 = "00.00";
+                semi.W6 = "00.00";
+                semi.B7 = "00.00";
+                semi.W7 = "00.00";
+                semi.B8 = "00.00";
+                semi.W8 = "00.00";
+                semi.B9 = "00.00";
+                semi.W9 = "00.00";
+                semi.Total = "00.00";
+
+                semi.Insert_Top_10();
+            }
+
+            MessageBox.Show("Top 10 Updated", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            
+        }
+
+        private void dgvSemiFinal_DoubleClick(object sender, EventArgs e)
+        {
+            //MessageBox.Show(dgvTopFinalist.Rows.Count.ToString());
+            for (int i = 0; i < dgvTopFinalist.Rows.Count; i++)
+            {                               
+                if (dgvTopFinalist.Rows[i].Cells[0].Value == dgvSemiFinal.CurrentCell.Value)
+                {
+                    MessageBox.Show("Duplicated", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }                                          
+            }
+
+            if (dgvTopFinalist.Rows.Count <= 9)
+            {
+                semi.Can_no = dgvSemiFinal.CurrentCell.Value.ToString();
+                semi.B1 = "00.00";
+                semi.W1 = "00.00";
+                semi.B2 = "00.00";
+                semi.W2 = "00.00";
+                semi.B3 = "00.00";
+                semi.W3 = "00.00";
+                semi.B4 = "00.00";
+                semi.W4 = "00.00";
+                semi.B5 = "00.00";
+                semi.W5 = "00.00";
+                semi.B6 = "00.00";
+                semi.W6 = "00.00";
+                semi.B7 = "00.00";
+                semi.W7 = "00.00";
+                semi.B8 = "00.00";
+                semi.W8 = "00.00";
+                semi.B9 = "00.00";
+                semi.W9 = "00.00";
+                semi.Total = "00.00";
+
+                semi.Insert_Top_10();
+
+                dgvTopFinalist.Rows.Add(dgvSemiFinal.CurrentCell.Value.ToString());
+            }
+            else
+            {
+                MessageBox.Show("10 Top Finalist only", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void dgvTOP10_DoubleClick(object sender, EventArgs e)
+        {
+            dgvTopFinalist.Rows.Clear();
+            for (int z = 0; z < dgvTopFinalist.Rows.Count; z++)
+            {
+                if (dgvTopFinalist.Rows[z].Cells[0].Value == dgvTOP10.CurrentCell.Value)
+                {
+                    MessageBox.Show("Duplicated", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+            }
+
+            if (dgvTopFinalist.Rows.Count <= 4)
+            {
+                final.Can_no = dgvTOP10.CurrentCell.Value.ToString();
+                final.B1 = "00.00";
+                final.W1 = "00.00";
+                final.B2 = "00.00";
+                final.W2 = "00.00";
+                final.B3 = "00.00";
+                final.W3 = "00.00";
+                final.B4 = "00.00";
+                final.W4 = "00.00";
+                final.B5 = "00.00";
+                final.W5 = "00.00";
+                final.B6 = "00.00";
+                final.W6 = "00.00";
+                final.B7 = "00.00";
+                final.W7 = "00.00";
+                final.B8 = "00.00";
+                final.W8 = "00.00";
+                final.B9 = "00.00";
+                final.W9 = "00.00";
+                final.Total = "00.00"; 
+
+                try
+                {
+                    final.Insert_Final_10();
+                    dgvTopFinalist.Rows.Add(dgvTOP10.CurrentCell.Value.ToString());
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("duplicate", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+               
+               
+            }
+            else
+            {
+                MessageBox.Show("5 Top Finalist only", "Tabulation System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void dgvTOP10_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
